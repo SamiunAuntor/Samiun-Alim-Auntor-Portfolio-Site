@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#020617"/>
+  <rect width="1200" height="630" fill="url(#paint0_radial)"/>
+  <rect width="1200" height="630" fill="url(#paint1_radial)"/>
+  <g opacity="0.18">
+    <path d="M0 84H1200" stroke="#94A3B8"/>
+    <path d="M0 168H1200" stroke="#94A3B8"/>
+    <path d="M0 252H1200" stroke="#94A3B8"/>
+    <path d="M0 336H1200" stroke="#94A3B8"/>
+    <path d="M0 420H1200" stroke="#94A3B8"/>
+    <path d="M0 504H1200" stroke="#94A3B8"/>
+    <path d="M0 588H1200" stroke="#94A3B8"/>
+    <path d="M96 0V630" stroke="#94A3B8"/>
+    <path d="M192 0V630" stroke="#94A3B8"/>
+    <path d="M288 0V630" stroke="#94A3B8"/>
+    <path d="M384 0V630" stroke="#94A3B8"/>
+    <path d="M480 0V630" stroke="#94A3B8"/>
+    <path d="M576 0V630" stroke="#94A3B8"/>
+    <path d="M672 0V630" stroke="#94A3B8"/>
+    <path d="M768 0V630" stroke="#94A3B8"/>
+    <path d="M864 0V630" stroke="#94A3B8"/>
+    <path d="M960 0V630" stroke="#94A3B8"/>
+    <path d="M1056 0V630" stroke="#94A3B8"/>
+    <path d="M1152 0V630" stroke="#94A3B8"/>
+  </g>
+  <rect x="96" y="96" width="1008" height="438" rx="32" fill="#0F172A" fill-opacity="0.72" stroke="#94A3B8" stroke-opacity="0.24"/>
+  <circle cx="926" cy="182" r="128" fill="#22D3EE" fill-opacity="0.12"/>
+  <circle cx="255" cy="120" r="144" fill="#6366F1" fill-opacity="0.12"/>
+  <text x="144" y="198" fill="#67E8F9" font-family="Segoe UI, Arial, sans-serif" font-size="24" letter-spacing="8">FULL STACK DEVELOPER</text>
+  <text x="144" y="286" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="66" font-weight="700">Samiun Alim Auntor</text>
+  <text x="144" y="360" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="28">Building scalable full-stack platforms with clean architecture,</text>
+  <text x="144" y="400" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="28">real-world workflows, and production-ready engineering.</text>
+  <rect x="144" y="450" width="282" height="54" rx="27" fill="#22D3EE"/>
+  <text x="183" y="484" fill="#020617" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">MERN / Next.js / Systems</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(317 69) rotate(64.1953) scale(609.626 1222.13)">
+      <stop stop-color="#22D3EE" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1048 117) rotate(126.068) scale(441.708 879.258)">
+      <stop stop-color="#6366F1" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
