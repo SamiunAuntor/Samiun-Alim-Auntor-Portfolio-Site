@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import iconAvatar from "@/assets/icon_1.png";
 import { profile } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +20,7 @@ const navItems = [
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [avatarFailed, setAvatarFailed] = useState(false);
 
   useEffect(() => {
     const sections = navItems
@@ -56,12 +59,23 @@ export function Navbar() {
     <header className="sticky top-0 z-50 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6">
       <nav className="flex items-center justify-between rounded-full border border-white/10 bg-slate-950/70 px-4 py-3 shadow-[0_14px_40px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:px-6">
         <Link href="#home" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 text-sm font-semibold tracking-[0.28em] text-cyan-100">
-            SA
+          <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/12 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.18),rgba(15,23,42,0.92))] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            {avatarFailed ? (
+              <span className="text-base font-semibold tracking-[0.18em] text-slate-100">S</span>
+            ) : (
+              <Image
+                src={iconAvatar}
+                alt="Samiun Alim Auntor avatar"
+                fill
+                sizes="48px"
+                className="object-cover"
+                onError={() => setAvatarFailed(true)}
+              />
+            )}
           </span>
           <div className="hidden min-[880px]:block">
             <p className="text-sm font-semibold text-white">{profile.name}</p>
-            <p className="text-xs text-slate-400">Full-stack systems, not just pages</p>
+            <p className="text-xs text-slate-400">Full-stack software engineer</p>
           </div>
         </Link>
 
