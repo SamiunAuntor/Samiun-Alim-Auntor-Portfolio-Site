@@ -82,19 +82,19 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-white/10 pb-16 pt-16 lg:pb-20 lg:pt-20"
+      className="relative overflow-hidden border-b border-white/10 pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-        <div className="grid w-full gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="space-y-7">
+      <div className="mx-auto w-full max-w-7xl px-3 sm:px-5 xl:px-6">
+        <div className="grid w-full gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center xl:grid-cols-2">
+          <div className="space-y-6 sm:space-y-7">
             <Reveal className="space-y-7">
-              <div className="inline-flex items-center gap-3 rounded-full border border-sky-300/20 bg-sky-300/[0.055] px-4 py-2 text-[10px] font-semibold uppercase text-sky-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur">
+              <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-sky-300/20 bg-sky-300/[0.055] px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.08em] text-sky-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur sm:px-4 sm:text-[10px]">
                 <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_16px_rgba(125,211,252,0.9)]" />
-                Full Stack Software Engineer
+                <span className="truncate">Full Stack Software Engineer</span>
               </div>
 
               <div className="space-y-5">
-                <h1 className="max-w-[48rem] text-4xl font-semibold leading-[1.12] text-white sm:text-5xl lg:text-[3.95rem] xl:text-[4.2rem]">
+                <h1 className="max-w-[48rem] text-[clamp(2.65rem,12vw,4.2rem)] font-semibold leading-[1.08] text-white sm:text-[4rem] lg:text-[3.25rem] xl:text-[4.2rem]">
                   I build{" "}
                   <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
                     scalable
@@ -108,24 +108,24 @@ export function Hero() {
                     backend systems.
                   </span>
                 </h1>
-                <p className="max-w-[44rem] text-base leading-8 text-slate-300">
+                <p className="max-w-[44rem] text-sm leading-7 text-slate-300 sm:text-base sm:leading-8 lg:max-w-[35rem] xl:max-w-[44rem]">
                   I design and build production-ready applications with clean architecture,
                   real-world workflows, and a focus on performance, security, and great UX.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="flex flex-wrap gap-4">
+            <Reveal delay={0.08} className="flex flex-col gap-3 min-[440px]:flex-row min-[440px]:flex-wrap sm:gap-4">
               <Link
                 href="#projects"
-                className="inline-flex items-center gap-3 rounded-2xl border border-sky-200/28 bg-gradient-to-r from-sky-300 to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(56,189,248,0.16)] transition hover:translate-y-[-1px]"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-sky-200/28 bg-gradient-to-r from-sky-300 to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(56,189,248,0.16)] transition hover:translate-y-[-1px]"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-3 rounded-2xl border border-white/16 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,6,23,0.16)] backdrop-blur transition hover:border-sky-300/28 hover:bg-white/[0.07]"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/16 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,6,23,0.16)] backdrop-blur transition hover:border-sky-300/28 hover:bg-white/[0.07]"
               >
                 <Mail className="h-4 w-4" />
                 Contact Me
@@ -160,28 +160,28 @@ export function Hero() {
 
 function EngineeringProfileCard() {
   return (
-    <div className="relative mx-auto w-full max-w-[42rem]">
-      <div className="relative min-h-[38rem] rounded-[2rem] border border-sky-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(96,165,250,0.22),transparent_32%),linear-gradient(180deg,rgba(10,18,36,0.9),rgba(4,9,20,0.96))] p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_26px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:p-8">
+    <div className="relative mx-auto w-full max-w-[42rem] lg:mr-0">
+      <div className="relative rounded-[1.6rem] border border-sky-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(96,165,250,0.22),transparent_32%),linear-gradient(180deg,rgba(10,18,36,0.9),rgba(4,9,20,0.96))] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_26px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-6 lg:min-h-[34rem] lg:p-5 xl:min-h-[38rem] xl:p-8">
         <div className="relative">
-          <div className="mb-6 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3 text-[11px] font-semibold uppercase text-sky-200">
+          <div className="mb-5 flex items-center justify-between gap-3 sm:mb-6 sm:gap-4">
+            <div className="flex min-w-0 items-center gap-2 text-[10px] font-semibold uppercase text-sky-200 sm:gap-3 sm:text-[11px]">
               <span className="rounded-full border border-sky-200/15 bg-sky-300/[0.1] px-3 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 <Code2 className="inline h-3.5 w-3.5" />
               </span>
-              Engineering Profile
+              <span className="truncate">Engineering Profile</span>
             </div>
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.26em] text-slate-400">
+            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-400 sm:text-[11px] sm:tracking-[0.26em]">
               TypeScript
             </span>
           </div>
 
-          <div className="rounded-[1.5rem] border border-white/10 bg-[#050914]/88 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-          <div className="mb-5 flex gap-2">
-            <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-            <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-            <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-          </div>
-            <pre className="overflow-visible whitespace-pre text-[10.5px] leading-8 min-[1180px]:text-[11px] xl:text-[11.5px]">
+          <div className="rounded-[1.35rem] border border-white/10 bg-[#050914]/88 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:rounded-[1.5rem] sm:p-6 lg:p-4 xl:p-6">
+            <div className="mb-5 flex gap-2">
+              <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+              <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+              <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+            </div>
+            <pre className="overflow-hidden whitespace-pre-wrap break-words text-[9px] leading-6 min-[420px]:text-[10px] sm:whitespace-pre sm:text-[10.5px] sm:leading-8 lg:text-[9px] lg:leading-7 min-[1180px]:text-[10px] xl:text-[11.5px]">
               <code>
                 <CodeLine number="01">
                   <span className="text-[#C586C0]">const</span>{" "}
@@ -254,7 +254,7 @@ function EngineeringProfileCard() {
             <p className="text-xs font-semibold uppercase text-slate-500">
               Core Skills
             </p>
-            <div className="mt-5 grid grid-cols-4 gap-2 sm:grid-cols-6 xl:grid-cols-8">
+            <div className="mt-5 grid grid-cols-3 gap-2 min-[420px]:grid-cols-4 sm:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8">
               {coreSkills.map((skill) => {
                 const Icon = skill.icon;
 
@@ -263,7 +263,7 @@ function EngineeringProfileCard() {
                     key={skill.label}
                     title={skill.label}
                     aria-label={skill.label}
-                    className="flex h-12 w-full items-center justify-center rounded-xl border border-white/10 bg-[#070b14]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_26px_rgba(2,6,23,0.28)]"
+                    className="flex h-11 w-full items-center justify-center rounded-xl border border-white/10 bg-[#070b14]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_26px_rgba(2,6,23,0.28)] sm:h-12 lg:h-10 xl:h-12"
                   >
                     <Icon className={`h-6 w-6 ${skill.className}`} />
                   </div>
