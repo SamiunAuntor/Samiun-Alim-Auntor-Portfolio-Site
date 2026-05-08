@@ -10,6 +10,7 @@ import { Skills } from "@/components/sections/Skills";
 import { BootSequence } from "@/components/shared/BootSequence";
 import { Footer } from "@/components/shared/Footer";
 import { Navbar } from "@/components/shared/Navbar";
+import { SectionDivider } from "@/components/shared/SectionDivider";
 
 export default function HomePage() {
   return (
@@ -18,13 +19,21 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <SectionDivider />
         <About />
+        <SectionDivider />
         <Skills />
+        <SectionDivider />
         <EngineeringHighlights />
+        <SectionDivider />
         <Projects />
+        <SectionDivider />
         <GitHubStats />
+        <SectionDivider />
         <Certifications />
+        <SectionDivider />
         <Education />
+        <SectionDivider />
         <Contact />
       </main>
       <Footer />

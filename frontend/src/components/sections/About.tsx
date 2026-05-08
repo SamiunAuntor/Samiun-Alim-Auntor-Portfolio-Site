@@ -44,7 +44,7 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="border-b border-white/10 py-20 lg:py-24">
+    <section id="about" className="py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
         <div className="grid w-full gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <Reveal>

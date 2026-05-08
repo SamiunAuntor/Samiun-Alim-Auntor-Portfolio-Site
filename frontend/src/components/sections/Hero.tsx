@@ -82,7 +82,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-white/10 pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
+      className="relative overflow-hidden pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
     >
       <div className="mx-auto w-full max-w-7xl px-3 sm:px-5 xl:px-6">
         <div className="grid w-full gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center xl:grid-cols-2">
