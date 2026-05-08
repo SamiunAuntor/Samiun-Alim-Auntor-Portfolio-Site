@@ -9,6 +9,17 @@ import { TechBadge } from "@/components/shared/TechBadge";
 import { skillCategories, stackTicker } from "@/data/skills";
 
 const orbitIcons = [Code2, Workflow, Database, Shield, Rocket];
+const orbitItems = stackTicker.slice(0, 10).map((item, index) => {
+  const angle = (index / 10) * Math.PI * 2;
+  const x = (Math.cos(angle) * 132).toFixed(2);
+  const y = (Math.sin(angle) * 132).toFixed(2);
+
+  return {
+    item,
+    transform: `translate(${x}px, ${y}px)`,
+    iconIndex: index % orbitIcons.length
+  };
+});
 
 export function Skills() {
   const reduceMotion = useReducedMotion();
@@ -54,27 +65,26 @@ export function Skills() {
                   </div>
                 </div>
 
-                {stackTicker.slice(0, 10).map((item, index) => {
-                  const angle = (index / 10) * Math.PI * 2;
-                  const x = Math.cos(angle) * 132;
-                  const y = Math.sin(angle) * 132;
-                  const Icon = orbitIcons[index % orbitIcons.length];
+                {orbitItems.map(({ item, transform, iconIndex }) => {
+                  const Icon = orbitIcons[iconIndex];
 
                   return (
-                    <motion.div
+                    <div
                       key={item}
                       className="absolute left-1/2 top-1/2"
-                      style={{ x, y }}
-                      animate={reduceMotion ? undefined : { rotate: -360 }}
-                      transition={
-                        reduceMotion ? undefined : { duration: 28, repeat: Infinity, ease: "linear" }
-                      }
+                      style={{ transform }}
                     >
-                      <div className="flex min-w-[6.8rem] -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-white/10 bg-slate-950/85 px-3 py-2 text-xs text-slate-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]">
+                      <motion.div
+                        animate={reduceMotion ? undefined : { rotate: -360 }}
+                        transition={
+                          reduceMotion ? undefined : { duration: 28, repeat: Infinity, ease: "linear" }
+                        }
+                        className="flex min-w-[6.8rem] -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-white/10 bg-slate-950/85 px-3 py-2 text-xs text-slate-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]"
+                      >
                         <Icon className="h-3.5 w-3.5 text-cyan-300" />
                         {item}
-                      </div>
-                    </motion.div>
+                      </motion.div>
+                    </div>
                   );
                 })}
               </motion.div>
