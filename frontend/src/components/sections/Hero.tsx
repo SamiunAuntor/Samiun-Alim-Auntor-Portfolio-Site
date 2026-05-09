@@ -1,15 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import Marquee from "react-fast-marquee";
+import { useReducedMotion } from "framer-motion";
 import { ArrowRight, Code2, Github, Linkedin, Mail } from "lucide-react";
 import {
+  SiCplusplus,
   SiDocker,
   SiExpress,
   SiFirebase,
+  SiGithub,
   SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
   SiPrisma,
   SiReact,
+  SiTailwindcss,
   SiTypescript,
   SiVercel
 } from "react-icons/si";
@@ -29,26 +36,6 @@ const coreSkills = [
     className: "text-[#4169E1]"
   },
   {
-    label: "Express.js",
-    icon: SiExpress,
-    className: "text-white"
-  },
-  {
-    label: "Node.js",
-    icon: SiNodedotjs,
-    className: "text-[#8CC84B]"
-  },
-  {
-    label: "Next.js",
-    icon: SiNextdotjs,
-    className: "text-white"
-  },
-  {
-    label: "React",
-    icon: SiReact,
-    className: "text-[#61DAFB]"
-  },
-  {
     label: "Prisma",
     icon: SiPrisma,
     className: "text-white"
@@ -59,9 +46,39 @@ const coreSkills = [
     className: "text-[#3178C6]"
   },
   {
+    label: "Node.js",
+    icon: SiNodedotjs,
+    className: "text-[#8CC84B]"
+  },
+  {
+    label: "Express.js",
+    icon: SiExpress,
+    className: "text-white"
+  },
+  {
+    label: "React",
+    icon: SiReact,
+    className: "text-[#61DAFB]"
+  },
+  {
+    label: "Next.js",
+    icon: SiNextdotjs,
+    className: "text-white"
+  },
+  {
+    label: "Tailwind CSS",
+    icon: SiTailwindcss,
+    className: "text-[#38BDF8]"
+  },
+  {
     label: "Docker",
     icon: SiDocker,
     className: "text-[#2496ED]"
+  },
+  {
+    label: "Vercel",
+    icon: SiVercel,
+    className: "text-white"
   },
   {
     label: "Firebase",
@@ -69,9 +86,14 @@ const coreSkills = [
     className: "text-[#FFCA28]"
   },
   {
-    label: "Vercel",
-    icon: SiVercel,
+    label: "GitHub",
+    icon: SiGithub,
     className: "text-white"
+  },
+  {
+    label: "C++",
+    icon: SiCplusplus,
+    className: "text-[#00599C]"
   }
 ] as const;
 
@@ -94,6 +116,13 @@ export function Hero() {
               </div>
 
               <div className="space-y-5">
+                <p className="text-lg font-medium text-slate-300 sm:text-xl lg:text-2xl">
+                  Hi, I&apos;m{" "}
+                  <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text font-semibold text-transparent">
+                    Samiun Alim Auntor
+                  </span>
+                  .
+                </p>
                 <h1 className="max-w-[48rem] text-[clamp(2.65rem,12vw,4.2rem)] font-semibold leading-[1.08] text-white sm:text-[4rem] lg:text-[3.25rem] xl:text-[4.2rem]">
                   I build{" "}
                   <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
@@ -159,6 +188,8 @@ export function Hero() {
 }
 
 function EngineeringProfileCard() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="relative mx-auto w-full max-w-[42rem] lg:mr-0">
       <div className="relative rounded-[1.6rem] border border-sky-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(96,165,250,0.22),transparent_32%),linear-gradient(180deg,rgba(10,18,36,0.9),rgba(4,9,20,0.96))] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_26px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-6 lg:min-h-[34rem] lg:p-5 xl:min-h-[38rem] xl:p-8">
@@ -254,21 +285,24 @@ function EngineeringProfileCard() {
             <p className="text-xs font-semibold uppercase text-slate-500">
               Core Skills
             </p>
-            <div className="mt-5 grid grid-cols-3 gap-2 min-[420px]:grid-cols-4 sm:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8">
-              {coreSkills.map((skill) => {
-                const Icon = skill.icon;
+            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur">
+              <Marquee autoFill gradient={false} speed={reduceMotion ? 18 : 28}>
+                {coreSkills.map((skill) => {
+                  const Icon = skill.icon;
 
-                return (
-                  <div
-                    key={skill.label}
-                    title={skill.label}
-                    aria-label={skill.label}
-                    className="flex h-11 w-full items-center justify-center rounded-xl border border-white/10 bg-[#070b14]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_26px_rgba(2,6,23,0.28)] sm:h-12 lg:h-10 xl:h-12"
-                  >
-                    <Icon className={`h-6 w-6 ${skill.className}`} />
-                  </div>
-                );
-              })}
+                  return (
+                    <div key={skill.label} className="mx-2">
+                      <div
+                        title={skill.label}
+                        aria-label={skill.label}
+                        className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-[#070b14]/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_26px_rgba(2,6,23,0.28)]"
+                      >
+                        <Icon className={`h-6 w-6 ${skill.className}`} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </Marquee>
             </div>
           </div>
 

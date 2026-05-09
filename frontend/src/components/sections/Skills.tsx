@@ -1,114 +1,138 @@
 "use client";
 
-import Marquee from "react-fast-marquee";
-import { motion, useReducedMotion } from "framer-motion";
-import { Code2, Database, Rocket, Shield, Workflow } from "lucide-react";
+import type { IconType } from "react-icons";
+import { FaJava } from "react-icons/fa";
+import {
+  SiBetterauth,
+  SiC,
+  SiCplusplus,
+  SiCss,
+  SiDocker,
+  SiExpress,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiGo,
+  SiGooglecloud,
+  SiHtml5,
+  SiJavascript,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiPython,
+  SiReact,
+  SiRender,
+  SiStripe,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiZod
+} from "react-icons/si";
+import { Braces, Cpu, Database, GraduationCap, Layers, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { TechBadge } from "@/components/shared/TechBadge";
-import { skillCategories, stackTicker } from "@/data/skills";
+import { skillCategories } from "@/data/skills";
 
-const orbitIcons = [Code2, Workflow, Database, Shield, Rocket];
-const orbitItems = stackTicker.slice(0, 10).map((item, index) => {
-  const angle = (index / 10) * Math.PI * 2;
-  const x = (Math.cos(angle) * 132).toFixed(2);
-  const y = (Math.sin(angle) * 132).toFixed(2);
+type SkillIcon = {
+  icon: IconType;
+  color: string;
+};
 
-  return {
-    item,
-    transform: `translate(${x}px, ${y}px)`,
-    iconIndex: index % orbitIcons.length
-  };
-});
+const iconMap: Record<string, SkillIcon> = {
+  PostgreSQL: { icon: SiPostgresql, color: "text-[#4169E1]" },
+  Prisma: { icon: SiPrisma, color: "text-white" },
+  "Better Auth": { icon: SiBetterauth, color: "text-white" },
+  Zod: { icon: SiZod, color: "text-[#3068B7]" },
+  Stripe: { icon: SiStripe, color: "text-[#635BFF]" },
+  React: { icon: SiReact, color: "text-[#61DAFB]" },
+  "Next.js": { icon: SiNextdotjs, color: "text-white" },
+  TypeScript: { icon: SiTypescript, color: "text-[#3178C6]" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "text-[#38BDF8]" },
+  MongoDB: { icon: SiMongodb, color: "text-[#47A248]" },
+  "Node.js": { icon: SiNodedotjs, color: "text-[#8CC84B]" },
+  "Express.js": { icon: SiExpress, color: "text-white" },
+  Firebase: { icon: SiFirebase, color: "text-[#FFCA28]" },
+  JavaScript: { icon: SiJavascript, color: "text-[#F7DF1E]" },
+  Git: { icon: SiGit, color: "text-[#F05032]" },
+  GitHub: { icon: SiGithub, color: "text-white" },
+  MySQL: { icon: SiMysql, color: "text-[#4479A1]" },
+  Python: { icon: SiPython, color: "text-[#3776AB]" },
+  Docker: { icon: SiDocker, color: "text-[#2496ED]" },
+  CSS: { icon: SiCss, color: "text-[#663399]" },
+  HTML: { icon: SiHtml5, color: "text-[#E34F26]" },
+  Java: { icon: FaJava, color: "text-[#F89820]" },
+  "C++": { icon: SiCplusplus, color: "text-[#00599C]" },
+  C: { icon: SiC, color: "text-[#A8B9CC]" },
+  "Oracle SQL": { icon: Database, color: "text-red-300" },
+  "SQL basics": { icon: Database, color: "text-sky-300" },
+  Vercel: { icon: SiVercel, color: "text-white" },
+  Render: { icon: SiRender, color: "text-[#46E3B7]" },
+  OOP: { icon: Layers, color: "text-cyan-300" },
+  "Design Patterns": { icon: Cpu, color: "text-indigo-300" },
+  "Data Structures": { icon: Braces, color: "text-sky-300" },
+  Algorithms: { icon: Cpu, color: "text-blue-300" },
+  "Digital Design": { icon: Cpu, color: "text-emerald-300" },
+  DBMS: { icon: Database, color: "text-cyan-300" },
+  "System Design": { icon: Layers, color: "text-indigo-300" },
+  "DSA / Competitive Programming": { icon: Braces, color: "text-sky-300" },
+  Cybersecurity: { icon: ShieldCheck, color: "text-emerald-300" },
+  Networking: { icon: Cpu, color: "text-cyan-300" },
+  Linux: { icon: SiLinux, color: "text-[#FCC624]" },
+  "Cloud / DevOps": { icon: SiGooglecloud, color: "text-[#4285F4]" },
+  Go: { icon: SiGo, color: "text-[#00ADD8]" },
+  "Advanced Backend Engineering": { icon: GraduationCap, color: "text-indigo-300" }
+};
 
 export function Skills() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section id="skills" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
+    <section id="skills" className="px-3 py-20 sm:px-5 lg:py-28 xl:px-6">
+      <div className="mx-auto flex w-full max-w-[calc(80rem-1.5rem)] flex-col gap-10 sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
         <Reveal>
-          <SectionHeading
-            eyebrow="Engineering Stack"
-            title="Modern frontend, dependable backend, and software foundations that support scale."
-            description="This stack reflects how I think about products: not just the UI layer, but the data, workflows, deployment, and engineering tradeoffs behind it."
-          />
-        </Reveal>
-
-        <Reveal delay={0.06}>
-          <div className="overflow-hidden rounded-full border border-white/10 bg-white/[0.04] py-3">
-            <Marquee autoFill gradient={false} speed={reduceMotion ? 18 : 34}>
-              {stackTicker.map((tech) => (
-                <div key={tech} className="mx-3">
-                  <TechBadge label={tech} className="px-4 py-2 text-sm" />
-                </div>
-              ))}
-            </Marquee>
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
+              Skills
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
+              My{" "}
+              <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                engineering stack.
+              </span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+              Technologies I use to build full-stack products, backend workflows, and
+              production-ready web systems.
+            </p>
           </div>
         </Reveal>
 
-        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-          <Reveal delay={0.08}>
-            <div className="relative flex min-h-[28rem] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.85),rgba(2,6,23,0.96))] p-8">
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:34px_34px] opacity-20" />
-              <motion.div
-                animate={reduceMotion ? undefined : { rotate: 360 }}
-                transition={reduceMotion ? undefined : { duration: 28, repeat: Infinity, ease: "linear" }}
-                className="relative flex h-72 w-72 items-center justify-center rounded-full border border-cyan-300/15"
-              >
-                <div className="flex h-36 w-36 items-center justify-center rounded-full border border-white/10 bg-slate-950/80 text-center shadow-[0_0_80px_rgba(34,211,238,0.12)]">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.32em] text-cyan-300/90">
-                      My Engineering Stack
-                    </p>
-                    <p className="mt-3 text-lg font-semibold text-white">Frontend + Backend + Systems</p>
-                  </div>
-                </div>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {skillCategories.map((category, index) => (
+            <Reveal key={category.title} delay={0.08 + index * 0.035}>
+              <article className="h-full rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_16px_48px_rgba(2,6,23,0.22),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
+                <h3 className="text-lg font-semibold text-white">{category.title}</h3>
 
-                {orbitItems.map(({ item, transform, iconIndex }) => {
-                  const Icon = orbitIcons[iconIndex];
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {category.items.map((item) => {
+                    const skill = iconMap[item];
+                    const Icon = skill?.icon ?? Braces;
 
-                  return (
-                    <div
-                      key={item}
-                      className="absolute left-1/2 top-1/2"
-                      style={{ transform }}
-                    >
-                      <motion.div
-                        animate={reduceMotion ? undefined : { rotate: -360 }}
-                        transition={
-                          reduceMotion ? undefined : { duration: 28, repeat: Infinity, ease: "linear" }
-                        }
-                        className="flex min-w-[6.8rem] -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-white/10 bg-slate-950/85 px-3 py-2 text-xs text-slate-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]"
+                    return (
+                      <div
+                        key={item}
+                        className="flex w-fit items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/45 px-3 py-2.5 text-xs font-medium text-slate-200"
                       >
-                        <Icon className="h-3.5 w-3.5 text-cyan-300" />
-                        {item}
-                      </motion.div>
-                    </div>
-                  );
-                })}
-              </motion.div>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {skillCategories.map((category, index) => (
-              <Reveal key={category.title} delay={0.08 + index * 0.04}>
-                <article className="h-full rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_16px_48px_rgba(2,6,23,0.22)]">
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-white">{category.title}</h3>
-                    <p className="text-sm leading-7 text-slate-400">{category.description}</p>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {category.items.map((item) => (
-                      <TechBadge key={item} label={item} />
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+                        <Icon className={`h-4 w-4 shrink-0 ${skill?.color ?? "text-sky-300"}`} />
+                        <span className="whitespace-nowrap">{item}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

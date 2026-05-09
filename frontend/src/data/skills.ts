@@ -3,64 +3,60 @@ import { skillCategorySchema, type SkillCategory } from "./types";
 const rawSkillCategories = [
   {
     title: "Frontend",
-    description: "Responsive interfaces with modern React patterns and production-focused polish.",
+    description: "Modern interfaces with responsive layouts and product-focused polish.",
     items: [
       "HTML",
       "CSS",
       "JavaScript",
-      "TypeScript",
       "React",
       "Next.js",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Firebase Hosting",
-      "Responsive UI"
+      "Tailwind CSS"
     ]
   },
   {
     title: "Backend",
-    description: "APIs and workflows built around real product behavior rather than toy demos.",
+    description: "APIs, auth, payments, and workflows built for real product behavior.",
     items: [
       "Node.js",
       "Express.js",
-      "REST API",
-      "JWT Auth",
-      "RBAC",
       "Better Auth",
-      "Nodemailer",
-      "Socket.io",
-      "Cron Jobs",
-      "Payment Webhooks"
+      "Zod",
+      "Stripe"
     ]
   },
   {
     title: "Database / ORM",
-    description: "Relational and document data design with practical full-stack tradeoff awareness.",
+    description: "Relational/document data modeling with ORM-backed backend structure.",
     items: [
-      "MongoDB",
       "PostgreSQL",
+      "MongoDB",
       "MySQL",
       "Oracle SQL",
-      "Prisma",
-      "Mongoose",
-      "PL/SQL basics"
+      "Prisma"
     ]
   },
   {
     title: "Tools / Deployment",
-    description: "Version control, hosting, asset workflows, and debugging tools for shipping apps.",
+    description: "Version control, deployment, containers, and shipping workflows.",
     items: [
       "Git",
       "GitHub",
       "Vercel",
       "Render",
       "Firebase",
-      "Cloudinary",
-      "ImageBB",
-      "Postman",
-      "Docker basics",
-      "VS Code",
-      "NVM"
+      "Docker"
+    ]
+  },
+  {
+    title: "Languages",
+    description: "Programming languages I use for web development, coursework, and problem solving.",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Java",
+      "C++",
+      "C"
     ]
   },
   {
@@ -71,11 +67,9 @@ const rawSkillCategories = [
       "Design Patterns",
       "Data Structures",
       "Algorithms",
-      "System Design",
+      "Digital Design",
       "DBMS",
-      "Operating Systems basics",
-      "Networking basics",
-      "Software Architecture"
+      "System Design"
     ]
   },
   {
@@ -86,9 +80,9 @@ const rawSkillCategories = [
       "Cybersecurity",
       "Networking",
       "Linux",
-      "System Design",
-      "Advanced Backend Engineering",
-      "Cloud / DevOps basics"
+      "Cloud / DevOps",
+      "Go",
+      "Advanced Backend Engineering"
     ]
   }
 ] satisfies SkillCategory[];
@@ -99,15 +93,14 @@ export const stackTicker = [
   "React",
   "Next.js",
   "TypeScript",
-  "Tailwind CSS",
   "Node.js",
   "Express.js",
-  "PostgreSQL",
   "MongoDB",
+  "PostgreSQL",
   "Prisma",
-  "Socket.io",
-  "Stripe",
-  "Firebase",
+  "Tailwind CSS",
+  "Docker",
   "Vercel",
-  "System Design"
+  "GitHub",
+  "C++"
 ] as const;
