@@ -1,88 +1,101 @@
 import { projectSchema, type Project } from "./types";
+import ghorBariImage from "@/assets/projects/ghor-bari.png";
+import skillBridgeImage from "@/assets/projects/skill-bridge.png";
+import warrantyWalletImage from "@/assets/projects/warranty-wallet.png";
 
 const rawProjects = [
   {
     slug: "skillbridge",
     title: "SkillBridge",
-    eyebrow: "Online Tutoring Booking Marketplace",
+    eyebrow: "Tutoring Marketplace Platform",
     description:
-      "A scalable tutoring marketplace where students discover tutors, book availability-based sessions, complete secure payments, and manage progress through role-based dashboards.",
-    impact: "Flagship SaaS-style platform that reflects my strongest full-stack architecture direction.",
+      "A modern tutoring marketplace where students discover tutors, book live sessions, pay securely, and use role-based dashboards across student, tutor, and admin experiences.",
+    impact:
+      "A SaaS-style tutoring platform built with a split frontend/backend architecture, secure payment flow, protected dashboards, and production-oriented route organization.",
     features: [
-      "Student, tutor, and admin role separation",
-      "Availability slot management and session booking flow",
-      "Stripe payment integration and confirmation lifecycle",
-      "Role-based dashboards, reviews, and notification concepts"
+      "Student, tutor, and admin role-aware dashboards",
+      "Tutor discovery, availability-based booking, and session flow",
+      "Stripe checkout with hold expiry and payment result handling",
+      "Server-protected routes, notifications, and theme-aware dashboard UX"
     ],
     stack: [
       "Next.js",
+      "React",
       "TypeScript",
+      "Tailwind CSS",
       "Express.js",
+      "Node.js",
       "Prisma",
       "PostgreSQL",
       "Better Auth",
-      "Stripe",
-      "Nodemailer",
-      "Tailwind CSS"
+      "Stripe"
     ],
     links: {
-      caseStudy: "Case study coming soon"
+      live: "https://skill-bridge-frontend-sooty.vercel.app/",
+      github: "https://github.com/SamiunAuntor/Skill-Bridge_Frontend",
+      caseStudy: "Frontend and backend system breakdown coming soon"
     },
     featured: true
   },
   {
     slug: "ghor-bari",
-    title: "GHOR_BARI",
-    eyebrow: "Smart Property Rental and Listing Platform",
+    title: "Ghor Bari",
+    eyebrow: "Property Rental and Listing Platform",
     description:
-      "A full-stack property marketplace for the Bangladesh market with role-based access, discovery, offer negotiation, realtime chat, verification, and admin analytics.",
-    impact: "Strong example of coordinating realtime features, verification logic, and multi-role workflows.",
+      "A full-stack property platform for the Bangladesh market with discovery, role-based workflows, real-time chat, verification, analytics, and AI-assisted property experiences.",
+    impact:
+      "A feature-rich marketplace system that combines real-time communication, geolocation-based property discovery, admin moderation, and production-style workflow design.",
     features: [
-      "Owner, seeker, and admin role-based flows",
-      "Property listing, filtering, wishlist, and comparison",
-      "Offer negotiation and realtime chat with Socket.io",
-      "Verification, notifications, and admin analytics"
+      "Owner, seeker, and admin role-based product flows",
+      "Geo-location property search, filtering, compare, and wishlist",
+      "Socket.io real-time chat with negotiation and application lifecycle",
+      "NID verification, queued email notifications, and admin analytics"
     ],
     stack: [
       "React",
+      "Tailwind CSS",
       "Node.js",
       "Express.js",
       "MongoDB",
+      "Firebase",
       "Socket.io",
-      "Firebase Hosting",
-      "Render",
-      "Nodemailer",
-      "Node-cron"
+      "Render"
     ],
-    links: {},
-    featured: false
+    links: {
+      live: "https://ghor-bari-2c93a.web.app/",
+      github: "https://github.com/khandakeraliariyan/GHOR_BARI"
+    },
+    featured: true
   },
   {
     slug: "warrantywallet",
     title: "WarrantyWallet",
     eyebrow: "Digital Warranty Management Platform",
     description:
-      "A productivity app for managing product warranties, storing invoices, tracking expiry dates, sending reminders, and exporting records.",
-    impact: "Prize-winning project that combines utility, automation, and role-aware product design.",
+      "A smart warranty and claim reminder system for tracking products, storing invoices, managing admin oversight, and automating expiry reminders.",
+    impact:
+      "A practical productivity platform that combines automation, file handling, role-based access, analytics, and scheduled background jobs around a real user pain point.",
     features: [
-      "Warranty tracking and invoice image upload",
-      "Expiry status visibility and cron-based reminders",
-      "Admin and user roles with analytics dashboard",
-      "Email reminders and PDF export workflows"
+      "Product and warranty CRUD with expiry-state calculation",
+      "Invoice image vault with ImageBB upload and claim-ready access",
+      "Admin dashboard, charts, role-based routes, and user management",
+      "Daily cron-based reminder emails and PDF export workflows"
     ],
     stack: [
       "React",
+      "Tailwind CSS",
       "Node.js",
       "Express.js",
-      "MongoDB Atlas",
-      "Firebase Auth",
-      "ImageBB",
-      "Nodemailer",
-      "Node-cron",
-      "Vercel"
+      "MongoDB",
+      "Firebase",
+      "Vercel",
+      "ImageBB"
     ],
-    links: {},
-    featured: false
+    links: {
+      live: "https://warranty-wallet-ad400.web.app",
+      github: "https://github.com/SamiunAuntor/WarrantyWallet"
+    },
+    featured: true
   },
   {
     slug: "blood-bridge",
@@ -104,3 +117,9 @@ const rawProjects = [
 ] satisfies Project[];
 
 export const projects = projectSchema.array().parse(rawProjects);
+
+export const projectImages = {
+  skillbridge: skillBridgeImage,
+  "ghor-bari": ghorBariImage,
+  warrantywallet: warrantyWalletImage
+} as const;
