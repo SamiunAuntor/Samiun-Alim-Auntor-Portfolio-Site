@@ -3,49 +3,70 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import iconAvatar from "@/assets/icon_1.png";
 import { profile } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Home", href: "#home", id: "home" },
-  { label: "About", href: "#about", id: "about" },
-  { label: "Skills", href: "#skills", id: "skills" },
-  { label: "Projects", href: "#projects", id: "projects" },
-  { label: "Certifications", href: "#certifications", id: "certifications" },
-  { label: "Contact", href: "#contact", id: "contact" }
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Services", id: "services" },
+  { label: "Projects", id: "projects" },
+  { label: "Certifications", id: "certifications" },
+  { label: "Contact", id: "contact" }
 ] as const;
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("home");
+  const [activeSection, setActiveSection] = useState<string>("");
   const [avatarFailed, setAvatarFailed] = useState(false);
+  const navScrollLockUntilRef = useRef(0);
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter((section): section is HTMLElement => Boolean(section));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target.id) {
-          setActiveSection(visible.target.id);
-        }
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.2, 0.4, 0.6]
+    const updateActiveSection = () => {
+      if (Date.now() < navScrollLockUntilRef.current) {
+        return;
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      const marker = window.scrollY + window.innerHeight * 0.34;
+      const viewportBottom = window.scrollY + window.innerHeight;
+      const pageBottom = document.documentElement.scrollHeight - 4;
 
-    return () => observer.disconnect();
+      if (viewportBottom >= pageBottom) {
+        setActiveSection(navItems.at(-1)?.id ?? "");
+        return;
+      }
+
+      let currentSection: string = navItems[0]?.id ?? "";
+
+      for (let index = 0; index < navItems.length; index += 1) {
+        const currentItem = navItems[index];
+        const nextItem = navItems[index + 1];
+        const currentSectionElement = document.getElementById(currentItem.id);
+
+        if (!currentSectionElement) {
+          continue;
+        }
+
+        const currentTop = currentSectionElement.offsetTop;
+        const nextTop = nextItem ? document.getElementById(nextItem.id)?.offsetTop : undefined;
+
+        if (marker >= currentTop && (nextTop === undefined || marker < nextTop)) {
+          currentSection = currentItem.id;
+          break;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+    };
   }, []);
 
   useEffect(() => {
@@ -55,10 +76,48 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  const handleSectionNavigate = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+      return;
+    }
+
+    const contentTarget =
+      section.firstElementChild instanceof HTMLElement ? section.firstElementChild : section;
+    const navElement = document.querySelector("header nav");
+    const navHeight = navElement instanceof HTMLElement ? navElement.getBoundingClientRect().height : 76;
+    const targetOffset = -(navHeight + 60);
+
+    setMenuOpen(false);
+    setActiveSection(sectionId);
+    navScrollLockUntilRef.current = Date.now() + 1400;
+    const lenis = window.__portfolioLenis;
+    window.history.replaceState(null, "", window.location.pathname);
+
+    if (lenis) {
+      lenis.scrollTo(contentTarget, {
+        offset: targetOffset,
+        duration: 1.15,
+        lerp: 0.12
+      });
+      return;
+    }
+
+    const targetY = Math.max(
+      contentTarget.getBoundingClientRect().top + window.scrollY + targetOffset,
+      0
+    );
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <header className="sticky top-0 z-50 mx-auto w-full max-w-7xl px-3 pt-3 sm:px-5 sm:pt-4 xl:px-6">
       <nav className="flex items-center justify-between rounded-full border border-white/10 bg-slate-950/70 px-3 py-2.5 shadow-[0_14px_40px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:px-5 sm:py-3 xl:px-6">
-        <Link href="#home" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
           <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/12 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.18),rgba(15,23,42,0.92))] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:h-12 sm:w-12">
             {avatarFailed ? (
               <span className="text-base font-semibold tracking-[0.18em] text-slate-100">S</span>
@@ -83,16 +142,17 @@ export function Navbar() {
 
         <div className="hidden items-center gap-1 lg:flex xl:gap-2">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.id}
-              href={item.href}
+              type="button"
+              onClick={() => handleSectionNavigate(item.id)}
               className={cn(
                 "rounded-full px-3 py-2 text-xs text-slate-300 transition hover:text-white xl:px-4 xl:text-sm",
                 activeSection === item.id && "bg-white/[0.06] text-white"
               )}
             >
               {item.label}
-            </Link>
+            </button>
           ))}
         </div>
 
@@ -123,17 +183,17 @@ export function Navbar() {
         <div className="mt-3 rounded-[1.8rem] border border-white/10 bg-slate-950/95 p-4 shadow-[0_24px_70px_rgba(2,6,23,0.48)] backdrop-blur lg:hidden">
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.id}
-                href={item.href}
+                type="button"
                 className={cn(
                   "rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.05]",
                   activeSection === item.id && "bg-white/[0.06] text-white"
                 )}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleSectionNavigate(item.id)}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </div>
         </div>

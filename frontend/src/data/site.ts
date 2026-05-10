@@ -1,10 +1,8 @@
 import {
   educationSchema,
   heroStatSchema,
-  highlightSchema,
   type Education,
-  type HeroStat,
-  type Highlight
+  type HeroStat
 } from "./types";
 
 export const profile = {
@@ -40,45 +38,6 @@ const rawHeroStats = [
   }
 ] satisfies HeroStat[];
 
-const rawHighlights = [
-  {
-    title: "Authentication & RBAC",
-    description:
-      "Designing gated product flows with role-aware interfaces, protected routes, and backend permission checks.",
-    outcome: "Built for admin, tutor, student, owner, and seeker workflows."
-  },
-  {
-    title: "Booking & session lifecycle",
-    description:
-      "Thinking in end-to-end user journeys: discover, schedule, pay, confirm, and manage sessions cleanly.",
-    outcome: "Strong fit for platforms like tutoring, rentals, and service marketplaces."
-  },
-  {
-    title: "Payment and webhook flow",
-    description:
-      "Structuring payment intents, verification, and success state handling around reliable backend events.",
-    outcome: "Important for SaaS products with subscriptions, bookings, or checkout flows."
-  },
-  {
-    title: "Realtime systems",
-    description:
-      "Supporting live communication and state updates with Socket.io and event-driven thinking.",
-    outcome: "Useful for negotiation, support, and collaborative product experiences."
-  },
-  {
-    title: "Jobs, reminders, and notifications",
-    description:
-      "Using cron-based workflows, email reminders, and async operations to keep products useful beyond a single page load.",
-    outcome: "Adds production behavior rather than static demo behavior."
-  },
-  {
-    title: "Deployment problem solving",
-    description:
-      "Working through hosting setup, API connectivity, CORS, and environment configuration with a systems mindset.",
-    outcome: "Closer to real engineering constraints than isolated local demos."
-  }
-] satisfies Highlight[];
-
 const rawEducation = {
   degree: "BSc in Software Engineering",
   institution: "Islamic University of Technology - IUT",
@@ -97,5 +56,4 @@ const rawEducation = {
 } satisfies Education;
 
 export const heroStats = heroStatSchema.array().parse(rawHeroStats);
-export const engineeringHighlights = highlightSchema.array().parse(rawHighlights);
 export const education = educationSchema.parse(rawEducation);

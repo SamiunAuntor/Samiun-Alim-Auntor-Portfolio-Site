@@ -19,6 +19,7 @@ export function SmoothScroll() {
       touchMultiplier: 1,
       autoRaf: true
     });
+    window.__portfolioLenis = lenis;
 
     const handleAnchorClick = (event: MouseEvent) => {
       const target = event.target;
@@ -56,6 +57,7 @@ export function SmoothScroll() {
     document.addEventListener("click", handleAnchorClick);
 
     return () => {
+      delete window.__portfolioLenis;
       document.removeEventListener("click", handleAnchorClick);
       lenis.destroy();
     };

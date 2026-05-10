@@ -41,12 +41,6 @@ export const projectSchema = z.object({
   featured: z.boolean().default(false)
 });
 
-export const highlightSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  outcome: z.string()
-});
-
 export const certificationSchema = z.object({
   title: z.string(),
   provider: z.string(),
@@ -66,6 +60,5 @@ export type SocialLink = z.infer<typeof socialLinkSchema>;
 export type HeroStat = z.infer<typeof heroStatSchema>;
 export type SkillCategory = z.infer<typeof skillCategorySchema>;
 export type Project = z.infer<typeof projectSchema>;
-export type Highlight = z.infer<typeof highlightSchema>;
 export type Certification = z.infer<typeof certificationSchema>;
 export type Education = z.infer<typeof educationSchema>;
