@@ -3,33 +3,57 @@ import { Reveal } from "@/components/shared/Reveal";
 
 const services = [
   {
-    title: "Landing Pages",
-    description: "Fast, premium pages with clear structure, strong messaging, and polished interactions.",
+    title: "Full Stack Web Development",
+    description:
+      "Building complete web applications with modern frontend, backend architecture, databases, and real product workflows.",
     icon: LayoutTemplate
   },
   {
-    title: "Portfolio Websites",
-    description: "Developer and personal brand sites that feel modern, intentional, and recruiter-ready.",
+    title: "Frontend Development",
+    description:
+      "Creating responsive and interactive user interfaces with React, Next.js, Tailwind CSS, and production-focused component systems.",
     icon: PanelsTopLeft
   },
   {
-    title: "Full-Stack Web Apps",
-    description: "Product-focused applications with clean frontend, backend structure, and scalable flows.",
+    title: "Backend Development",
+    description:
+      "Designing structured backend systems with Node.js, Express.js, REST APIs, validation, and clean service architecture.",
     icon: Blocks
   },
   {
-    title: "Authentication & RBAC",
-    description: "Secure login, protected routes, and role-aware product behavior across real workflows.",
+    title: "Landing Page Development",
+    description:
+      "Building responsive, conversion-focused landing pages that present products clearly and create strong first impressions.",
     icon: LockKeyhole
   },
   {
-    title: "REST APIs & Backend",
-    description: "Structured APIs, modular services, validation, and database-backed business logic.",
+    title: "SaaS Product Development",
+    description:
+      "Developing scalable SaaS-style applications with complete frontend and backend systems, strong workflows, and maintainable architecture.",
     icon: ServerCog
   },
   {
-    title: "Payments & Dashboards",
-    description: "Checkout flows, admin panels, role-based dashboards, and production-style operations.",
+    title: "Admin Panel Development",
+    description:
+      "Creating practical admin dashboards and control panels for managing users, content, workflows, analytics, and operations.",
+    icon: WalletCards
+  },
+  {
+    title: "Authentication with RBAC",
+    description:
+      "Implementing secure authentication and role-based access control for apps that need protected routes, user roles, and permission-aware behavior.",
+    icon: LockKeyhole
+  },
+  {
+    title: "Database Design",
+    description:
+      "Designing efficient database schemas and relational or document data models with PostgreSQL, MongoDB, MySQL, Oracle SQL, and Prisma.",
+    icon: ServerCog
+  },
+  {
+    title: "Deployment",
+    description:
+      "Deploying applications on platforms like Vercel, Firebase, Render, and Cloudflare with production-minded configuration and performance.",
     icon: WalletCards
   }
 ] as const;
