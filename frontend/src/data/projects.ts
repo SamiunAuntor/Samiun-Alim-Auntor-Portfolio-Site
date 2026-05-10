@@ -1,4 +1,5 @@
 import { projectSchema, type Project } from "./types";
+import bloodBridgeImage from "@/assets/projects/blood-bridge.png";
 import ghorBariImage from "@/assets/projects/ghor-bari.png";
 import skillBridgeImage from "@/assets/projects/skill-bridge.png";
 import warrantyWalletImage from "@/assets/projects/warranty-wallet.png";
@@ -33,6 +34,7 @@ const rawProjects = [
     links: {
       live: "https://skill-bridge-frontend-sooty.vercel.app/",
       github: "https://github.com/SamiunAuntor/Skill-Bridge_Frontend",
+      backend: "https://github.com/SamiunAuntor/Skill-Bridge_Backend",
       caseStudy: "Frontend and backend system breakdown coming soon"
     },
     featured: true
@@ -100,18 +102,30 @@ const rawProjects = [
   {
     slug: "blood-bridge",
     title: "Blood Bridge",
-    eyebrow: "Blood Donation and Request Platform",
+    eyebrow: "Blood Donation Management System",
     description:
-      "A MERN app connecting donors and recipients through search, requests, authentication, and role-based workflows.",
-    impact: "Earlier project that shows my foundation in practical MERN application development.",
+      "A secure MERN platform for managing blood donation requests, role-based dashboards, donor discovery, and operational workflows across admin, volunteer, and donor users.",
+    impact:
+      "An earlier but complete product system that demonstrates role-based access control, request lifecycle management, dashboard analytics, and public-to-private workflow design.",
     features: [
-      "Donor discovery and request management",
-      "Authentication and protected user flows",
-      "Role-aware dashboards and interaction design",
-      "Responsive MERN implementation with Tailwind CSS"
+      "Admin, volunteer, and donor role-aware dashboards",
+      "Donation request CRUD, status tracking, and donor response flow",
+      "Search donors by blood group and Bangladesh location filters",
+      "Firebase auth, protected routes, PDF export, and dashboard analytics"
     ],
-    stack: ["React", "Node.js", "Express.js", "MongoDB", "Firebase Authentication", "Tailwind CSS"],
-    links: {},
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase"
+    ],
+    links: {
+      live: "https://bloodbridge-4c0c0.web.app/",
+      github: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Client",
+      backend: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Server"
+    },
     featured: false
   }
 ] satisfies Project[];
@@ -119,6 +133,7 @@ const rawProjects = [
 export const projects = projectSchema.array().parse(rawProjects);
 
 export const projectImages = {
+  "blood-bridge": bloodBridgeImage,
   skillbridge: skillBridgeImage,
   "ghor-bari": ghorBariImage,
   warrantywallet: warrantyWalletImage

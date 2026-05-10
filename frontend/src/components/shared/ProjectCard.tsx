@@ -99,10 +99,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           })}
         </div>
 
-        <div className="mt-auto grid grid-cols-3 gap-2.5 pt-5">
+        <div className="mt-auto grid grid-cols-[1.45fr_0.95fr_0.95fr] gap-2.5 pt-5">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-200 hover:text-white"
+            className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
           >
             View Details
             <ArrowUpRight className="h-4 w-4" />
@@ -113,13 +113,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={liveLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-3 py-2.5 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/12 bg-white/[0.05] px-3 py-2.5 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
             >
               <ExternalLink className="h-4 w-4" />
               Live
             </Link>
           ) : (
-            <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm font-semibold text-slate-500">
+            <span className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm font-semibold text-slate-500">
               <ExternalLink className="h-4 w-4" />
               Live
             </span>
@@ -131,13 +131,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noreferrer"
               aria-label={`${project.title} repository`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-3 py-2.5 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/12 bg-white/[0.05] px-3 py-2.5 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
             >
               <Github className="h-4 w-4" />
               Repo
             </Link>
           ) : (
-            <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm font-semibold text-slate-500">
+            <span className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm font-semibold text-slate-500">
               <Github className="h-4 w-4" />
               Repo
             </span>
