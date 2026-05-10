@@ -15,7 +15,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -32,6 +32,23 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
   overflow-x: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 body::before {
@@ -85,4 +102,71 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(34, 211, 238, 0.45);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor select,
+  body.has-custom-cursor summary,
+  body.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transition:
+      opacity 180ms ease,
+      width 220ms ease,
+      height 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+    will-change: transform, opacity;
+  }
+
+  .custom-cursor-dot[data-visible="true"],
+  .custom-cursor-ring[data-visible="true"] {
+    opacity: 1;
+  }
+
+  .custom-cursor-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.96), rgba(125, 211, 252, 0.92));
+    box-shadow:
+      0 0 16px rgba(125, 211, 252, 0.35),
+      0 0 36px rgba(96, 165, 250, 0.2);
+  }
+
+  .custom-cursor-ring {
+    height: 32px;
+    width: 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    background: rgba(125, 211, 252, 0.025);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 16px rgba(56, 189, 248, 0.12);
+    backdrop-filter: blur(4px);
+  }
+
+  .custom-cursor-ring[data-interactive="true"] {
+    border-color: rgba(125, 211, 252, 0.44);
+    background: rgba(125, 211, 252, 0.045);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 22px rgba(56, 189, 248, 0.16);
+  }
 }

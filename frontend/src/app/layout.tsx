@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { CustomCursor } from "@/components/shared/CustomCursor";
+import { SmoothScroll } from "@/components/shared/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -56,7 +58,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SmoothScroll />
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
