@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ArrowRight, Code2, Github, Linkedin, Mail } from "lucide-react";
 import {
   SiCplusplus,
@@ -189,6 +190,24 @@ export function Hero() {
 
 function EngineeringProfileCard() {
   const reduceMotion = useReducedMotion();
+  const [bootReady, setBootReady] = useState(false);
+
+  useEffect(() => {
+    if (window.__portfolioBootComplete) {
+      setBootReady(true);
+      return;
+    }
+
+    const handleBootComplete = () => {
+      setBootReady(true);
+    };
+
+    window.addEventListener("portfolio-boot-complete", handleBootComplete);
+
+    return () => {
+      window.removeEventListener("portfolio-boot-complete", handleBootComplete);
+    };
+  }, []);
 
   return (
     <div className="relative mx-auto w-full max-w-[42rem] lg:mr-0">
@@ -214,27 +233,27 @@ function EngineeringProfileCard() {
             </div>
             <pre className="overflow-hidden whitespace-pre-wrap break-words text-[9px] leading-6 min-[420px]:text-[10px] sm:whitespace-pre sm:text-[10.5px] sm:leading-8 lg:text-[9px] lg:leading-7 min-[1180px]:text-[10px] xl:text-[11.5px]">
               <code>
-                <CodeLine number="01">
+                <CodeLine number="01" active={bootReady}>
                   <span className="text-[#C586C0]">const</span>{" "}
                   <span className="text-[#9CDCFE]">developer</span>{" "}
                   <span className="text-[#D4D4D4]">=</span>{" "}
                   <span className="text-[#D4D4D4]">{"{"}</span>
                 </CodeLine>
-                <CodeLine number="02">
+                <CodeLine number="02" delay={0.29} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">name</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
                   <span className="text-[#CE9178]">&quot;Samiun Alim Auntor&quot;</span>
                   <span className="text-[#D4D4D4]">,</span>
                 </CodeLine>
-                <CodeLine number="03">
+                <CodeLine number="03" delay={0.58} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">role</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
                   <span className="text-[#CE9178]">&quot;Full Stack Software Engineer&quot;</span>
                   <span className="text-[#D4D4D4]">,</span>
                 </CodeLine>
-                <CodeLine number="04">
+                <CodeLine number="04" delay={0.86} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">focus</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
@@ -246,21 +265,21 @@ function EngineeringProfileCard() {
                   <span className="text-[#CE9178]">&quot;Frontend&quot;</span>
                   <span className="text-[#D4D4D4]">],</span>
                 </CodeLine>
-                <CodeLine number="05">
+                <CodeLine number="05" delay={1.15} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">mindset</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
                   <span className="text-[#CE9178]">&quot;Build systems that scale.&quot;</span>
                   <span className="text-[#D4D4D4]">,</span>
                 </CodeLine>
-                <CodeLine number="06">
+                <CodeLine number="06" delay={1.44} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">currentTrajectory</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
                   <span className="text-[#CE9178]">&quot;Engineering depth -&gt; Real impact&quot;</span>
                   <span className="text-[#D4D4D4]">,</span>
                 </CodeLine>
-                <CodeLine number="07">
+                <CodeLine number="07" delay={1.73} active={bootReady}>
                   {"  "}
                   <span className="text-[#9CDCFE]">stack</span>
                   <span className="text-[#D4D4D4]">:</span>{" "}
@@ -274,7 +293,7 @@ function EngineeringProfileCard() {
                   <span className="text-[#CE9178]">&quot;Node.js&quot;</span>
                   <span className="text-[#D4D4D4]">],</span>
                 </CodeLine>
-                <CodeLine number="08">
+                <CodeLine number="08" delay={2.02} active={bootReady}>
                   <span className="text-[#D4D4D4]">{"};"}</span>
                 </CodeLine>
               </code>
@@ -312,12 +331,35 @@ function EngineeringProfileCard() {
   );
 }
 
-function CodeLine({ number, children }: { number: string; children: React.ReactNode }) {
+function CodeLine({
+  number,
+  children,
+  delay = 0,
+  active = false
+}: {
+  number: string;
+  children: React.ReactNode;
+  delay?: number;
+  active?: boolean;
+}) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <span className="block">
+    <motion.span
+      className="block origin-left overflow-hidden"
+      initial={reduceMotion ? false : { opacity: 0, y: 8, clipPath: "inset(0 100% 0 0)" }}
+      animate={
+        reduceMotion
+          ? undefined
+          : active
+            ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }
+            : { opacity: 0, y: 8, clipPath: "inset(0 100% 0 0)" }
+      }
+      transition={reduceMotion ? undefined : { duration: 1.92, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
       <span className="mr-4 select-none text-slate-600">{number}</span>
       {children}
-    </span>
+    </motion.span>
   );
 }
 

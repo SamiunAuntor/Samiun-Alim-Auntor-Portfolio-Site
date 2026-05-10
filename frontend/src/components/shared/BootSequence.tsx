@@ -12,26 +12,23 @@ const bootLines = [
 
 export function BootSequence() {
   const reduceMotion = useReducedMotion();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [activeLine, setActiveLine] = useState(0);
 
   const totalDuration = useMemo(() => (reduceMotion ? 700 : 2500), [reduceMotion]);
 
   useEffect(() => {
-    const hasSeenBoot = window.sessionStorage.getItem("portfolio-boot-seen");
-
-    if (hasSeenBoot) {
-      return;
-    }
-
+    window.__portfolioBootComplete = false;
     setVisible(true);
-    window.sessionStorage.setItem("portfolio-boot-seen", "true");
+    setActiveLine(0);
 
     const lineInterval = window.setInterval(() => {
       setActiveLine((current) => Math.min(current + 1, bootLines.length - 1));
     }, totalDuration / bootLines.length);
 
     const dismissTimeout = window.setTimeout(() => {
+      window.__portfolioBootComplete = true;
+      window.dispatchEvent(new Event("portfolio-boot-complete"));
       setVisible(false);
       window.clearInterval(lineInterval);
     }, totalDuration + 250);

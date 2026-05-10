@@ -1,31 +1,45 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/shared/ProjectCard";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/shared/SectionHeading";
 import { projects } from "@/data/projects";
 
 export function Projects() {
-  const featuredProject = projects.find((project) => project.featured);
-  const supportingProjects = projects.filter((project) => !project.featured);
+  const featuredProjects = projects.slice(0, 3);
 
   return (
-    <section id="projects" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
+    <section id="projects" className="px-3 py-20 sm:px-5 lg:py-28 xl:px-6">
+      <div className="mx-auto flex w-full max-w-[calc(80rem-1.5rem)] flex-col gap-10 sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
         <Reveal>
-          <SectionHeading
-            eyebrow="Featured Projects"
-            title="Product builds that show systems thinking, not just interface work."
-            description="These projects highlight the kind of workflows I enjoy building: marketplaces, dashboards, verification logic, reminders, payments, and multi-role platform behavior."
-          />
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
+                Featured Projects
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
+                Selected{" "}
+                <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                  product systems.
+                </span>
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+                A focused look at the full-stack projects that best represent my current
+                engineering direction.
+              </p>
+            </div>
+
+            <Link
+              href="/projects"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+            >
+              View All Projects
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </Reveal>
 
-        {featuredProject ? (
-          <Reveal delay={0.06}>
-            <ProjectCard project={featuredProject} priority />
-          </Reveal>
-        ) : null}
-
-        <div className="grid gap-6 xl:grid-cols-3">
-          {supportingProjects.map((project, index) => (
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {featuredProjects.map((project, index) => (
             <Reveal key={project.slug} delay={0.05 * index}>
               <ProjectCard project={project} />
             </Reveal>
