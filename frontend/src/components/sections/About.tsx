@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { BarChart3, Code2, Layers, Rocket, ShieldCheck, Zap } from "lucide-react";
+import { BarChart3, Code2, Layers, ShieldCheck, Zap } from "lucide-react";
 import aboutPhoto from "@/assets/icon_1.png";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { profile } from "@/data/site";
 
@@ -44,7 +45,7 @@ const stats = [
 export function About() {
   return (
     <section id="about" className="py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
+      <PageContainer>
         <div className="grid w-full gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <Reveal>
             <div className="relative mx-auto aspect-[0.78] w-full max-w-[27rem]">
@@ -82,7 +83,7 @@ export function About() {
                   databases, payment flows, dashboards, and system-level thinking.
                 </p>
                 <p className="max-w-2xl text-base leading-8 text-slate-300">
-                  I enjoy building practical systems around real user workflows — including
+                  I enjoy building practical systems around real user workflows, including
                   authentication, RBAC, booking, payments, notifications, analytics, and
                   deployment-ready backend structure.
                 </p>
@@ -128,7 +129,7 @@ export function About() {
             </div>
           </Reveal>
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

@@ -21,6 +21,7 @@ import {
   SiTypescript,
   SiVercel
 } from "react-icons/si";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { profile } from "@/data/site";
 import { socialLinks } from "@/data/socialLinks";
@@ -107,7 +108,7 @@ export function Hero() {
       id="home"
       className="relative overflow-hidden pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
     >
-      <div className="mx-auto w-full max-w-7xl px-3 sm:px-5 xl:px-6">
+      <PageContainer>
         <div className="grid w-full gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center xl:grid-cols-2">
           <div className="space-y-6 sm:space-y-7">
             <Reveal className="space-y-7">
@@ -183,7 +184,7 @@ export function Hero() {
             <EngineeringProfileCard />
           </Reveal>
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

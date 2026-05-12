@@ -2,7 +2,6 @@ import { About } from "@/components/sections/About";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Education } from "@/components/sections/Education";
-import { GitHubStats } from "@/components/sections/GitHubStats";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
@@ -28,11 +27,9 @@ export default function HomePage() {
         <SectionDivider />
         <Projects />
         <SectionDivider />
-        <GitHubStats />
+        <Education />
         <SectionDivider />
         <Certifications />
-        <SectionDivider />
-        <Education />
         <SectionDivider />
         <Contact />
       </main>

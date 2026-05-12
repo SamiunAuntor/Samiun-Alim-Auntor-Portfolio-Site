@@ -1,21 +1,23 @@
 import type { Request, Response } from "express";
-import { queueContactMessage } from "./contact.service.js";
+import { deliverContactMessage } from "./contact.service.js";
 import { contactSchema } from "./contact.validation.js";
 
-export function submitContactMessage(req: Request, res: Response) {
+export async function submitContactMessage(req: Request, res: Response) {
   const parsed = contactSchema.safeParse(req.body);
 
   if (!parsed.success) {
     return res.status(400).json({
+      success: false,
       message: "Invalid contact form payload.",
-      issues: parsed.error.flatten()
+      errors: parsed.error.flatten().fieldErrors
     });
   }
 
-  const result = queueContactMessage(parsed.data);
+  const result = await deliverContactMessage(parsed.data);
 
-  return res.status(202).json({
-    message: "Contact request accepted. Mail service will be connected next.",
-    data: result.payload
+  return res.status(201).json({
+    success: true,
+    message: "Your message was sent successfully.",
+    data: result
   });
 }

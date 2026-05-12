@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { useMemo, useState } from "react";
+import Swal from "sweetalert2";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { contactFormSchema, type ContactFormValues } from "@/lib/contact-schema";
@@ -16,10 +18,10 @@ const defaultValues: ContactFormValues = {
   message: ""
 };
 
-type SubmitState =
-  | { type: "idle"; message: string }
-  | { type: "error"; message: string }
-  | { type: "success"; message: string };
+type ContactApiResponse = {
+  success?: boolean;
+  message?: string;
+};
 
 export function Contact() {
   const [values, setValues] = useState<ContactFormValues>(defaultValues);
@@ -27,10 +29,6 @@ export function Contact() {
     {}
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitState, setSubmitState] = useState<SubmitState>({
-    type: "idle",
-    message: "Share an idea, opportunity, or collaboration and I'll get back to you."
-  });
 
   const githubLink = useMemo(
     () => socialLinks.find((link) => link.label === "GitHub")?.href ?? "#",
@@ -43,10 +41,6 @@ export function Contact() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitState({
-      type: "idle",
-      message: "Sending your message through the contact workflow..."
-    });
 
     const parsed = contactFormSchema.safeParse(values);
 
@@ -57,10 +51,6 @@ export function Contact() {
         email: flattened.email?.[0],
         subject: flattened.subject?.[0],
         message: flattened.message?.[0]
-      });
-      setSubmitState({
-        type: "error",
-        message: "Please correct the highlighted fields before sending."
       });
       return;
     }
@@ -79,20 +69,26 @@ export function Contact() {
         body: JSON.stringify(parsed.data)
       });
 
-      if (!response.ok) {
-        throw new Error("Contact request failed");
+      const result = (await response.json().catch(() => ({}))) as ContactApiResponse;
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message ?? "The contact request could not be completed.");
       }
 
       setValues(defaultValues);
-      setSubmitState({
-        type: "success",
-        message: "Message accepted. The backend contact workflow received your request."
+      await showFeedbackAlert({
+        icon: "success",
+        title: "Message sent",
+        text: result.message ?? "Your message has been delivered successfully."
       });
-    } catch {
-      setSubmitState({
-        type: "error",
-        message:
-          "The contact API is not reachable right now. You can still reach me directly by email or LinkedIn."
+    } catch (error) {
+      await showFeedbackAlert({
+        icon: "error",
+        title: "Message not sent",
+        text:
+          error instanceof Error
+            ? error.message
+            : "The contact service is not reachable right now. Please try again later."
       });
     } finally {
       setIsSubmitting(false);
@@ -105,8 +101,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+    <section id="contact" className="py-20 lg:py-28">
+      <PageContainer className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
         <Reveal>
           <SectionHeading
             eyebrow="Contact"
@@ -206,16 +202,8 @@ export function Contact() {
             </div>
 
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p
-                className={
-                  submitState.type === "error"
-                    ? "text-sm text-rose-300"
-                    : submitState.type === "success"
-                      ? "text-sm text-emerald-300"
-                      : "text-sm text-slate-400"
-                }
-              >
-                {submitState.message}
+              <p className="text-sm text-slate-400">
+                Messages are sent through the backend contact workflow with SMTP delivery.
               </p>
               <button
                 type="submit"
@@ -228,9 +216,28 @@ export function Contact() {
             </div>
           </form>
         </Reveal>
-      </div>
+      </PageContainer>
     </section>
   );
+}
+
+async function showFeedbackAlert({
+  icon,
+  title,
+  text
+}: {
+  icon: "success" | "error";
+  title: string;
+  text: string;
+}) {
+  await Swal.fire({
+    icon,
+    title,
+    text,
+    confirmButtonColor: "#22d3ee",
+    background: "#020617",
+    color: "#e2e8f0"
+  });
 }
 
 type FieldProps = {

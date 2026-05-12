@@ -1,9 +1,8 @@
-import "dotenv/config";
+import { env } from "./config/env.js";
 import { createApp } from "./app.js";
 
-const port = Number(process.env.PORT ?? 5000);
 const app = createApp();
 
-app.listen(port, () => {
-  console.log(`Portfolio backend listening on http://localhost:${port}`);
+app.listen(env.PORT, () => {
+  console.log(`Portfolio backend listening on http://localhost:${env.PORT}`);
 });

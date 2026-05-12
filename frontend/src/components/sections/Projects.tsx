@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { ProjectCard } from "@/components/shared/ProjectCard";
 import { Reveal } from "@/components/shared/Reveal";
 import { projects } from "@/data/projects";
@@ -8,8 +9,8 @@ export function Projects() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <section id="projects" className="px-3 py-20 sm:px-5 lg:py-28 xl:px-6">
-      <div className="mx-auto flex w-full max-w-[calc(80rem-1.5rem)] flex-col gap-10 sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
+    <section id="projects" className="py-20 lg:py-28">
+      <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -45,7 +46,7 @@ export function Projects() {
             </Reveal>
           ))}
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

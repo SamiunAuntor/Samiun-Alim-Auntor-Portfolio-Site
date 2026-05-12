@@ -1,4 +1,5 @@
 import { Blocks, LayoutTemplate, LockKeyhole, PanelsTopLeft, ServerCog, WalletCards } from "lucide-react";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 
 const services = [
@@ -60,8 +61,8 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="px-3 py-20 sm:px-5 lg:py-28 xl:px-6">
-      <div className="mx-auto flex w-full max-w-[calc(80rem-1.5rem)] flex-col gap-10 sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
+    <section id="services" className="py-20 lg:py-28">
+      <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
@@ -96,7 +97,7 @@ export function Services() {
             );
           })}
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

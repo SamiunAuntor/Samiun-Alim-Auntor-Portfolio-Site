@@ -33,6 +33,7 @@ import {
   SiZod
 } from "react-icons/si";
 import { Braces, Cpu, Database, GraduationCap, Layers, ShieldCheck } from "lucide-react";
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { skillCategories } from "@/data/skills";
 
@@ -88,8 +89,8 @@ const iconMap: Record<string, SkillIcon> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="px-3 py-20 sm:px-5 lg:py-28 xl:px-6">
-      <div className="mx-auto flex w-full max-w-[calc(80rem-1.5rem)] flex-col gap-10 sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
+    <section id="skills" className="py-20 lg:py-28">
+      <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
@@ -134,7 +135,7 @@ export function Skills() {
             </Reveal>
           ))}
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { TechBadge } from "@/components/shared/TechBadge";
@@ -5,8 +6,8 @@ import { education } from "@/data/site";
 
 export function Education() {
   return (
-    <section id="education" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="education" className="py-20 lg:py-28">
+      <PageContainer className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <SectionHeading
             eyebrow="Education"
@@ -28,6 +29,12 @@ export function Education() {
               </p>
             </div>
 
+            <p className="mt-6 text-sm leading-7 text-slate-300">
+              This is the core academic credential I want to emphasize right now. It supports the
+              engineering direction of the portfolio without pulling attention away from projects
+              and practical product work.
+            </p>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {education.areas.map((area) => (
                 <TechBadge key={area} label={area} />
@@ -35,7 +42,7 @@ export function Education() {
             </div>
           </article>
         </Reveal>
-      </div>
+      </PageContainer>
     </section>
   );
 }
