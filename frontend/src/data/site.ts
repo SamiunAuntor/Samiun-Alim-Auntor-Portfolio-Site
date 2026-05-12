@@ -1,6 +1,8 @@
 import {
+  academicRecordSchema,
   educationSchema,
   heroStatSchema,
+  type AcademicRecord,
   type Education,
   type HeroStat
 } from "./types";
@@ -8,7 +10,8 @@ import {
 export const profile = {
   name: "Samiun Alim Auntor",
   role: "Full Stack Developer | MERN Stack | Next.js | Backend Engineering | System Design",
-  headline: "Building scalable full-stack platforms with clean architecture, real-world workflows, and production-ready engineering.",
+  headline:
+    "Building scalable full-stack platforms with clean architecture, real-world workflows, and production-ready engineering.",
   intro:
     "Software Engineering student at IUT, focused on MERN, Next.js, backend engineering, system design, and SaaS-style applications that feel polished in production.",
   heroDescription:
@@ -38,7 +41,7 @@ const rawHeroStats = [
   }
 ] satisfies HeroStat[];
 
-const rawEducation = {
+const rawPrimaryEducation = {
   degree: "BSc in Software Engineering",
   institution: "Islamic University of Technology - IUT",
   range: "2023 - 2027",
@@ -55,5 +58,27 @@ const rawEducation = {
   ]
 } satisfies Education;
 
+const rawAcademicHistory = [
+  {
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Gazipur Cantonment College",
+    range: "January 2021 - December 2022",
+    status: "Completed",
+    result: "GPA 5.00 / 5.00",
+    group: "Science",
+    classYear: "2022"
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    institution: "BRRI High School",
+    range: "January 2018 - March 2020",
+    status: "Completed",
+    result: "GPA 5.00 / 5.00",
+    group: "Science",
+    classYear: "2020"
+  }
+] satisfies AcademicRecord[];
+
 export const heroStats = heroStatSchema.array().parse(rawHeroStats);
-export const education = educationSchema.parse(rawEducation);
+export const education = educationSchema.parse(rawPrimaryEducation);
+export const academicHistory = academicRecordSchema.array().parse(rawAcademicHistory);

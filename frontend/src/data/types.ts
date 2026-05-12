@@ -98,6 +98,16 @@ export const educationSchema = z.object({
   areas: z.array(z.string()).min(1)
 });
 
+export const academicRecordSchema = z.object({
+  degree: z.string(),
+  institution: z.string(),
+  range: z.string(),
+  status: z.string(),
+  result: z.string(),
+  group: z.string(),
+  classYear: z.string()
+});
+
 export type SocialLink = z.infer<typeof socialLinkSchema>;
 export type HeroStat = z.infer<typeof heroStatSchema>;
 export type SkillCategory = z.infer<typeof skillCategorySchema>;
@@ -108,3 +118,4 @@ export type ProjectDetail = z.infer<typeof projectDetailSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type Certification = z.infer<typeof certificationSchema>;
 export type Education = z.infer<typeof educationSchema>;
+export type AcademicRecord = z.infer<typeof academicRecordSchema>;
