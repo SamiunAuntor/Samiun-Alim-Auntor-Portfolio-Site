@@ -99,7 +99,7 @@ export function Skills() {
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
               My{" "}
               <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                engineering stack.
+                Engineering Stack.
               </span>
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">

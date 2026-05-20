@@ -12,8 +12,8 @@ export function Education() {
         <Reveal>
           <SectionHeading
             eyebrow="Education"
-            title="Academic grounding that supports both fundamentals and engineering depth."
-            description="I want the section to show progression clearly: a strong science background, strong academic results, and a current Software Engineering degree that aligns with the projects and backend direction of this portfolio."
+            title="Education and academic background."
+            description="My academic path in software engineering and the foundations behind my work."
           />
         </Reveal>
 

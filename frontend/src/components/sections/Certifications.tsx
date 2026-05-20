@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ArrowUpRight, Award } from "lucide-react";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -17,68 +19,72 @@ export function Certifications() {
         <Reveal>
           <SectionHeading
             eyebrow="Certifications"
-            title="Structured learning that supports my hands-on full-stack work."
-            description="I keep the certifications section focused and honest: three completed credentials, plus the ongoing paths that are actively shaping my next engineering step."
+            title="Certifications and learning."
+            description="Completed and ongoing learning paths that support my engineering growth."
           />
         </Reveal>
 
         <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-          <CertificationGroup
-            title="Completed"
-            description="Finished certifications that already support the current portfolio."
-            items={completedCertifications}
-          />
-          <CertificationGroup
-            title="Ongoing"
-            description="Current learning paths that extend the foundation into deeper engineering work."
-            items={ongoingCertifications}
-          />
+          <div className="space-y-4">
+            {completedCertifications.map((certification, index) => (
+              <CertificationCard
+                key={`completed-${certification.title}`}
+                certification={certification}
+                delay={0.03 + index * 0.05}
+              />
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            {ongoingCertifications.map((certification, index) => (
+              <CertificationCard
+                key={`ongoing-${certification.title}`}
+                certification={certification}
+                delay={0.03 + index * 0.05}
+              />
+            ))}
+          </div>
         </div>
       </PageContainer>
     </section>
   );
 }
 
-function CertificationGroup({
-  title,
-  description,
-  items
+function CertificationCard({
+  certification,
+  delay
 }: {
-  title: string;
-  description: string;
-  items: typeof certifications;
+  certification: (typeof certifications)[number];
+  delay: number;
 }) {
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.72),rgba(2,6,23,0.94))] p-6 shadow-[0_18px_56px_rgba(2,6,23,0.26)]">
-      <div className="max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300/90">
-          {title}
-        </p>
-        <p className="mt-3 text-sm leading-7 text-slate-300">{description}</p>
-      </div>
+    <Reveal delay={delay}>
+      <article className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.22)] backdrop-blur">
+        <div className="flex items-start gap-4">
+          <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08] text-cyan-200">
+            <Award className="h-5 w-5" />
+          </span>
 
-      <div className="mt-6 grid gap-4">
-        {items.map((certification, index) => (
-          <Reveal key={`${title}-${certification.title}`} delay={0.04 * index}>
-            <article className="h-full rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300/90">
-                  {certification.provider}
-                </p>
-                <span
-                  className={
-                    certification.status === "Completed"
-                      ? "inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs text-emerald-200"
-                      : "inline-flex rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs text-amber-100"
-                  }
-                >
-                  {certification.status}
-                </span>
-              </div>
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300/90">
+                {certification.provider}
+              </p>
+              <span
+                className={
+                  certification.status === "Completed"
+                    ? "inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs text-emerald-200"
+                    : "inline-flex rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs text-amber-100"
+                }
+              >
+                {certification.status}
+              </span>
+            </div>
 
-              <h3 className="mt-4 text-xl font-semibold text-white">{certification.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{certification.summary}</p>
+            <h3 className="mt-4 text-xl font-semibold text-white">{certification.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-300">{certification.summary}</p>
 
+            {certification.track || certification.note ? (
               <div className="mt-4 flex flex-wrap gap-2">
                 {certification.track ? (
                   <span className="inline-flex rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
@@ -91,10 +97,24 @@ function CertificationGroup({
                   </span>
                 ) : null}
               </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-    </div>
+            ) : null}
+
+            {certification.href ? (
+              <div className="mt-5">
+                <Link
+                  href={certification.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-sm font-medium text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+                >
+                  View Certificate
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </article>
+    </Reveal>
   );
 }

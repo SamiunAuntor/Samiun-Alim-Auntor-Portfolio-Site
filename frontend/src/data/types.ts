@@ -25,43 +25,55 @@ export const skillCategorySchema = z.object({
   items: z.array(z.string()).min(1)
 });
 
-export const projectDetailFactSchema = z.object({
-  label: z.string(),
-  value: z.string()
+export const projectRoleSchema = z.object({
+  summary: z.string(),
+  contributions: z.array(z.string()).min(1)
 });
 
-export const projectDetailGroupSchema = z.object({
-  label: z.string(),
+export const projectFeatureGroupSchema = z.object({
+  title: z.string(),
   items: z.array(z.string()).min(1)
 });
 
-export const projectDetailSectionSchema = z
-  .object({
-    id: z.string(),
-    title: z.string(),
-    intro: z.string().optional(),
-    bullets: z.array(z.string()).optional(),
-    groups: z.array(projectDetailGroupSchema).optional(),
-    facts: z.array(projectDetailFactSchema).optional(),
-    code: z.string().optional()
-  })
-  .refine(
-    (value) =>
-      Boolean(
-        value.intro ||
-          value.bullets?.length ||
-          value.groups?.length ||
-          value.facts?.length ||
-          value.code
-      ),
-    "Project detail section needs some content."
-  );
+export const projectTechCategorySchema = z.object({
+  category: z.string(),
+  items: z.array(z.string()).min(1)
+});
+
+export const projectArchitectureStepSchema = z.object({
+  title: z.string(),
+  description: z.string()
+});
+
+export const projectVisualSchema = z.object({
+  title: z.string(),
+  description: z.string()
+});
+
+export const projectChallengeSchema = z.object({
+  challenge: z.string(),
+  solution: z.string()
+});
 
 export const projectDetailSchema = z.object({
   slug: z.string(),
+  type: z.string(),
+  status: z.string(),
   tagline: z.string(),
-  quickFacts: z.array(projectDetailFactSchema).min(2),
-  sections: z.array(projectDetailSectionSchema).min(1)
+  overview: z.string(),
+  purpose: z.string(),
+  role: projectRoleSchema.optional(),
+  keyFeatures: z.array(projectFeatureGroupSchema).default([]),
+  techStack: z.array(projectTechCategorySchema).default([]),
+  architecture: z
+    .object({
+      intro: z.string(),
+      steps: z.array(projectArchitectureStepSchema).min(1)
+    })
+    .optional(),
+  visuals: z.array(projectVisualSchema).default([]),
+  challenges: z.array(projectChallengeSchema).default([]),
+  learnings: z.array(z.string()).default([])
 });
 
 export const projectSchema = z.object({
@@ -86,6 +98,7 @@ export const certificationSchema = z.object({
   provider: z.string(),
   summary: z.string(),
   status: z.enum(["Completed", "Ongoing"]),
+  href: z.string().url().optional(),
   track: z.string().optional(),
   note: z.string().optional()
 });
@@ -111,9 +124,12 @@ export const academicRecordSchema = z.object({
 export type SocialLink = z.infer<typeof socialLinkSchema>;
 export type HeroStat = z.infer<typeof heroStatSchema>;
 export type SkillCategory = z.infer<typeof skillCategorySchema>;
-export type ProjectDetailFact = z.infer<typeof projectDetailFactSchema>;
-export type ProjectDetailGroup = z.infer<typeof projectDetailGroupSchema>;
-export type ProjectDetailSection = z.infer<typeof projectDetailSectionSchema>;
+export type ProjectRole = z.infer<typeof projectRoleSchema>;
+export type ProjectFeatureGroup = z.infer<typeof projectFeatureGroupSchema>;
+export type ProjectTechCategory = z.infer<typeof projectTechCategorySchema>;
+export type ProjectArchitectureStep = z.infer<typeof projectArchitectureStepSchema>;
+export type ProjectVisual = z.infer<typeof projectVisualSchema>;
+export type ProjectChallenge = z.infer<typeof projectChallengeSchema>;
 export type ProjectDetail = z.infer<typeof projectDetailSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type Certification = z.infer<typeof certificationSchema>;
