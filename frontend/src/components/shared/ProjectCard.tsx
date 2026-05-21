@@ -102,10 +102,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-auto grid grid-cols-[1.45fr_0.95fr_0.95fr] gap-2.5 pt-5">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+            className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-[#020617] transition hover:bg-cyan-200"
+            style={{ color: "#020617" }}
           >
             View Details
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight className="h-4 w-4" color="#020617" />
           </Link>
 
           {liveLink ? (

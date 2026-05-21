@@ -160,15 +160,13 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-2 lg:flex xl:gap-3">
-            <a
-              href={`mailto:${profile.email}`}
-              className="rounded-full border border-white/12 bg-white/[0.05] px-3 py-2 text-xs text-slate-100 transition hover:border-cyan-300/25 hover:bg-white/[0.08] xl:px-4 xl:text-sm"
+            <button
+              type="button"
+              onClick={() => handleSectionNavigate("contact")}
+              className="rounded-full bg-cyan-300 px-3 py-2 text-xs font-semibold text-slate-950 transition hover:bg-cyan-200 xl:px-4 xl:text-sm"
             >
-              Email
-            </a>
-            <span className="rounded-full bg-cyan-300 px-3 py-2 text-xs font-semibold text-slate-950 xl:px-4 xl:text-sm">
-              Resume Soon
-            </span>
+              Contact Me
+            </button>
           </div>
 
           <button
@@ -198,6 +196,13 @@ export function Navbar() {
                   {item.label}
                 </button>
               ))}
+              <button
+                type="button"
+                className="mt-2 rounded-2xl bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+                onClick={() => handleSectionNavigate("contact")}
+              >
+                Contact Me
+              </button>
             </div>
           </div>
         ) : null}

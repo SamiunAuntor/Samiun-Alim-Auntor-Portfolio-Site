@@ -4,7 +4,7 @@ import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code2, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Code2, Download, Github, Linkedin, Mail } from "lucide-react";
 import {
   SiCplusplus,
   SiDocker,
@@ -21,10 +21,13 @@ import {
   SiTypescript,
   SiVercel
 } from "react-icons/si";
+import { FaWhatsapp } from "react-icons/fa";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { profile } from "@/data/site";
 import { socialLinks } from "@/data/socialLinks";
+
+const whatsappHref = "https://wa.me/8801988774499";
 
 const coreSkills = [
   {
@@ -155,11 +158,12 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#contact"
+                href={profile.resumePath}
+                download="Samiun-Alim-Auntor-Resume.pdf"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/16 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,6,23,0.16)] backdrop-blur transition hover:border-sky-300/28 hover:bg-white/[0.07]"
               >
-                <Mail className="h-4 w-4" />
-                Contact Me
+                <Download className="h-4 w-4" />
+                Download Resume
               </Link>
             </Reveal>
 
@@ -176,6 +180,9 @@ export function Hero() {
               ) : null}
               <SocialIcon href={`mailto:${profile.email}`} label="Email Samiun Alim Auntor">
                 <Mail className="h-5 w-5" />
+              </SocialIcon>
+              <SocialIcon href={whatsappHref} label="WhatsApp Samiun Alim Auntor">
+                <FaWhatsapp className="h-5 w-5 text-emerald-300" />
               </SocialIcon>
             </Reveal>
           </div>

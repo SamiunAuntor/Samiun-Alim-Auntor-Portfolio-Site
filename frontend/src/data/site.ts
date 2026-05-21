@@ -20,7 +20,7 @@ export const profile = {
   phone: "+8801988774499",
   location: "Dhaka, Bangladesh",
   graduation: "Expected graduation: 2027",
-  resumePath: "/Samiun_Alim_Auntor_Resume.pdf"
+  resumePath: "/resume"
 } as const;
 
 const rawHeroStats = [
