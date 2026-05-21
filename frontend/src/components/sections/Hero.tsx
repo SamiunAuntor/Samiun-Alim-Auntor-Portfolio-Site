@@ -182,7 +182,7 @@ export function Hero() {
                 <Mail className="h-5 w-5" />
               </SocialIcon>
               <SocialIcon href={whatsappHref} label="WhatsApp Samiun Alim Auntor">
-                <FaWhatsapp className="h-5 w-5 text-emerald-300" />
+                <FaWhatsapp className="h-5 w-5" />
               </SocialIcon>
             </Reveal>
           </div>

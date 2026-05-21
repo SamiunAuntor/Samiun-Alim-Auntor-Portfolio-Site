@@ -7,6 +7,9 @@
   ],
   "scripts": {
     "dev:frontend": "npm --workspace frontend run dev",
+    "dev:frontend:clean": "npm --workspace frontend run dev:clean",
+    "dev:frontend:webpack": "npm --workspace frontend run dev:webpack",
+    "dev:frontend:clean:webpack": "npm --workspace frontend run dev:clean:webpack",
     "dev:backend": "npm --workspace backend run dev",
     "build:frontend": "npm --workspace frontend run build",
     "build:backend": "npm --workspace backend run build"

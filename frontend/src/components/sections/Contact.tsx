@@ -107,24 +107,25 @@ export function Contact() {
     <section id="contact" className="py-20 lg:py-28">
       <PageContainer className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
         <Reveal>
-          <div className="space-y-5">
+          <div className="max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
               Contact
             </p>
-            <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-white sm:text-5xl">
-              Let&apos;s turn a good idea into a{" "}
+            <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
+              Have an{" "}
               <span className="bg-gradient-to-r from-cyan-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                polished product.
+                idea
               </span>
+              ? Let&apos;s build something{" "}
+              <span className="bg-gradient-to-r from-cyan-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                meaningful
+              </span>
+              .
             </h2>
-            <p className="max-w-2xl text-base leading-8 text-slate-300">
-              I&apos;m open to internships, junior roles, startup projects, and thoughtful
-              collaboration around full-stack products.
-            </p>
           </div>
 
-          <div className="mt-8 overflow-hidden rounded-[1.8rem] border border-sky-300/18 bg-[radial-gradient(circle_at_20%_0%,rgba(56,189,248,0.18),transparent_34%),linear-gradient(145deg,rgba(15,23,42,0.86),rgba(2,6,23,0.96))] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.32),inset_0_1px_0_rgba(255,255,255,0.08)]">
-            <div className="space-y-5">
+          <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-[radial-gradient(circle_at_14%_0%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.74),rgba(2,6,23,0.9))] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.24),inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="grid gap-3">
               <ContactItem
                 icon={<Mail className="h-4 w-4" />}
                 label="Email"
@@ -133,16 +134,9 @@ export function Contact() {
               />
               <ContactItem
                 icon={<Phone className="h-4 w-4" />}
-                label="Phone"
+                label="Phone / WhatsApp"
                 href={phoneHref}
                 value={profile.phone}
-              />
-              <ContactItem
-                icon={<FaWhatsapp className="h-4 w-4" />}
-                label="WhatsApp"
-                href={whatsappHref}
-                value={profile.phone}
-                external
               />
               <ContactItem
                 icon={<MapPin className="h-4 w-4" />}
@@ -151,41 +145,19 @@ export function Contact() {
               />
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href={githubLink}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-3 text-sm font-medium text-slate-100 transition hover:border-sky-300/30 hover:bg-white/[0.08]"
-              >
-                <Github className="h-4 w-4" />
-                GitHub
-              </Link>
-              <Link
-                href={linkedInLink}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-3 text-sm font-medium text-slate-100 transition hover:border-sky-300/30 hover:bg-white/[0.08]"
-              >
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
-              </Link>
-              <Link
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-3 text-sm font-medium text-slate-100 transition hover:border-sky-300/30 hover:bg-white/[0.08]"
-              >
-                <Mail className="h-4 w-4" />
-                Email me
-              </Link>
-              <Link
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.08] px-4 py-3 text-sm font-medium text-emerald-100 transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.12]"
-              >
-                <FaWhatsapp className="h-4 w-4" />
-                WhatsApp
-              </Link>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <ContactSocialIcon href={githubLink} label="GitHub profile" external>
+                <Github className="h-5 w-5" />
+              </ContactSocialIcon>
+              <ContactSocialIcon href={linkedInLink} label="LinkedIn profile" external>
+                <Linkedin className="h-5 w-5" />
+              </ContactSocialIcon>
+              <ContactSocialIcon href={`mailto:${profile.email}`} label="Email Samiun Alim Auntor">
+                <Mail className="h-5 w-5" />
+              </ContactSocialIcon>
+              <ContactSocialIcon href={whatsappHref} label="WhatsApp Samiun Alim Auntor" external>
+                <FaWhatsapp className="h-5 w-5" />
+              </ContactSocialIcon>
             </div>
           </div>
         </Reveal>
@@ -294,15 +266,17 @@ function ContactItem({
   external?: boolean;
 }) {
   const content = (
-    <div className="flex items-center gap-4 rounded-[1.3rem] border border-white/10 bg-slate-950/35 px-4 py-3.5">
-      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-sky-300/15 bg-sky-300/[0.08] text-sky-200">
+    <div className="flex items-center gap-3 rounded-[1.15rem] border border-white/10 bg-slate-950/35 px-4 py-3 transition hover:border-sky-300/20 hover:bg-slate-950/45">
+      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white">
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300/75">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sky-300/75">
           {label}
         </p>
-        <p className="mt-1 break-words text-base font-semibold text-slate-100">{value}</p>
+        <p className="mt-1 break-words text-sm font-semibold text-slate-100 sm:text-base">
+          {value}
+        </p>
       </div>
     </div>
   );
@@ -314,6 +288,30 @@ function ContactItem({
   return (
     <Link href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
       {content}
+    </Link>
+  );
+}
+
+function ContactSocialIcon({
+  href,
+  label,
+  external = false,
+  children
+}: {
+  href: string;
+  label: string;
+  external?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+      aria-label={label}
+      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.04] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur transition hover:border-sky-300/25 hover:bg-white/[0.07]"
+    >
+      {children}
     </Link>
   );
 }
