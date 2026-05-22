@@ -97,15 +97,11 @@ export function Skills() {
               Skills
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
-              My{" "}
+              Tech Stack Behind{" "}
               <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                Engineering Stack.
+                My Work.
               </span>
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              Technologies I use to build full-stack products, backend workflows, and
-              production-ready web systems.
-            </p>
           </div>
         </Reveal>
 

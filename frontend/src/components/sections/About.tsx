@@ -7,19 +7,19 @@ import { profile } from "@/data/site";
 
 const focusPoints = [
   {
-    text: "Full-stack product development with scalable architecture",
+    text: "Full-stack development from UI to backend architecture",
     icon: Layers
   },
   {
-    text: "Secure backend systems with authentication, RBAC, and clean APIs",
+    text: "Secure systems with authentication, RBAC, and clean APIs",
     icon: ShieldCheck
   },
   {
-    text: "Real-world workflows including bookings, payments, dashboards, and notifications",
+    text: "Real-world workflows : bookings, payments, dashboards, notifications",
     icon: BarChart3
   },
   {
-    text: "System-level thinking focused on clean code, reliability, and long-term growth",
+    text: "System-level thinking focused on reliability and maintainability",
     icon: Code2
   }
 ] as const;
@@ -31,12 +31,12 @@ const stats = [
     icon: Layers
   },
   {
-    value: "MERN+",
+    value: "Next.js + TS + SQL",
     label: "Core Stack",
     icon: Code2
   },
   {
-    value: "Cloud + Go",
+    value: "DevOps & Go",
     label: "Currently Learning",
     icon: Zap
   }
@@ -73,7 +73,7 @@ export function About() {
                 <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-white sm:text-5xl">
                   Full-stack engineer building{" "}
                   <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                    scalable product systems.
+                    scalable web systems.
                   </span>
                 </h2>
                 <p className="max-w-2xl text-base leading-8 text-slate-300">
@@ -104,7 +104,7 @@ export function About() {
                 })}
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-[minmax(10rem,0.82fr)_minmax(18rem,1.28fr)_minmax(13rem,1fr)]">
                 {stats.map((stat) => {
                   const Icon = stat.icon;
 
@@ -114,7 +114,9 @@ export function About() {
                       className="flex min-h-20 items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur"
                     >
                       <div>
-                        <div className="text-2xl font-semibold text-sky-300">{stat.value}</div>
+                        <div className="whitespace-nowrap text-lg font-semibold leading-none text-sky-300 sm:text-xl xl:text-[1.35rem]">
+                          {stat.value}
+                        </div>
                         <p className="mt-1.5 text-sm font-medium leading-5 text-slate-300">
                           {stat.label}
                         </p>

@@ -105,22 +105,21 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 lg:py-28">
-      <PageContainer className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+      <PageContainer className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
         <Reveal>
           <div className="max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
               Contact
             </p>
-            <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
+            <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
               Have an{" "}
               <span className="bg-gradient-to-r from-cyan-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                idea
+                idea?
               </span>
-              ? Let&apos;s build something{" "}
+              {" "}Let&apos;s build something{" "}
               <span className="bg-gradient-to-r from-cyan-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                meaningful
+                meaningful.
               </span>
-              .
             </h2>
           </div>
 
@@ -172,6 +171,7 @@ export function Contact() {
               <Field
                 id="name"
                 label="Name"
+                placeholder="Your name"
                 required
                 value={values.name}
                 onChange={(value) => handleChange("name", value)}
@@ -180,6 +180,7 @@ export function Contact() {
               <Field
                 id="email"
                 label="Email"
+                placeholder="you@example.com"
                 required
                 type="email"
                 value={values.email}
@@ -192,6 +193,7 @@ export function Contact() {
               <Field
                 id="subject"
                 label="Subject"
+                placeholder="What would you like to discuss?"
                 required
                 value={values.subject}
                 onChange={(value) => handleChange("subject", value)}
@@ -208,7 +210,7 @@ export function Contact() {
                 required
                 value={values.message}
                 onChange={(event) => handleChange("message", event.target.value)}
-                className="min-h-40 w-full rounded-[1.4rem] border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/30"
+                className="min-h-44 w-full rounded-[1.4rem] border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/30 lg:min-h-56"
                 placeholder="Tell me about the role, product, or collaboration."
               />
               {fieldErrors.message ? (
@@ -319,6 +321,7 @@ function ContactSocialIcon({
 type FieldProps = {
   id: "name" | "email" | "subject";
   label: string;
+  placeholder: string;
   required?: boolean;
   value: string;
   onChange: (value: string) => void;
@@ -326,7 +329,16 @@ type FieldProps = {
   type?: "text" | "email";
 };
 
-function Field({ id, label, required = false, value, onChange, error, type = "text" }: FieldProps) {
+function Field({
+  id,
+  label,
+  placeholder,
+  required = false,
+  value,
+  onChange,
+  error,
+  type = "text"
+}: FieldProps) {
   return (
     <div>
       <label htmlFor={id} className="mb-2 block text-sm font-medium text-slate-200">
@@ -337,6 +349,7 @@ function Field({ id, label, required = false, value, onChange, error, type = "te
         type={type}
         required={required}
         value={value}
+        placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
         className="w-full rounded-[1.4rem] border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/30"
       />
