@@ -7,13 +7,13 @@ import { academicHistory, education } from "@/data/site";
 
 export function Education() {
   return (
-    <section id="education" className="py-20 lg:py-28">
+    <section id="education" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <SectionHeading
             eyebrow="Education"
-            title="Education and academic background."
-            description="My academic path in software engineering and the foundations behind my work."
+            title="Academic Foundation."
+            description="Formal background in software engineering, computer science fundamentals, and system-level problem solving."
           />
         </Reveal>
 
@@ -21,21 +21,24 @@ export function Education() {
           <Reveal delay={0.05}>
             <article className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.94))] p-6 shadow-[0_18px_56px_rgba(2,6,23,0.26)]">
               <div className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300/90">
-                  Current Degree
-                </p>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300/90">
+                    Current Degree
+                  </p>
+                  <p className="inline-flex rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs text-amber-100">
+                    {education.status}
+                  </p>
+                </div>
                 <h3 className="text-2xl font-semibold text-white">{education.degree}</h3>
                 <p className="text-base text-slate-300">{education.institution}</p>
                 <p className="text-sm text-slate-400">{education.range}</p>
-                <p className="inline-flex rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
-                  {education.status}
-                </p>
               </div>
 
               <p className="mt-6 text-sm leading-7 text-slate-300">
-                This is the main academic credential behind the portfolio. It directly supports my
-                growth in software engineering, system thinking, backend structure, and long-term
-                product development.
+                My core academic foundation in software engineering, combining classroom study, lab
+                work, software project labs, and design projects. The program strengthens my base
+                in software construction, databases, algorithms, operating systems, networking,
+                system design, and real-world project development.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">

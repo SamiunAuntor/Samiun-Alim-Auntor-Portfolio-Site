@@ -44,11 +44,11 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-24">
+    <section id="about" className="py-16 lg:py-24">
       <PageContainer>
         <div className="grid w-full gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <Reveal>
-            <div className="relative mx-auto aspect-[0.78] w-full max-w-[27rem]">
+            <div className="relative mx-auto aspect-[0.78] w-full max-w-[27rem] lg:ml-3 lg:mr-0">
               <div className="absolute -inset-3 rounded-[2.3rem] border border-sky-200/12 bg-white/[0.025] shadow-[0_20px_90px_rgba(37,99,235,0.18),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl" />
               <div className="relative h-full overflow-hidden rounded-[2rem] border border-sky-200/20 bg-[radial-gradient(circle_at_50%_18%,rgba(125,211,252,0.18),transparent_34%),linear-gradient(180deg,rgba(15,23,42,0.72),rgba(2,6,23,0.96))] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_30px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]">
                 <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.16),transparent_24%,transparent_76%,rgba(125,211,252,0.12))]" />

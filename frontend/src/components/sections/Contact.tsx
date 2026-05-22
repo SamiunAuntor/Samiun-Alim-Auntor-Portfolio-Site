@@ -104,7 +104,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 lg:py-28">
+    <section id="contact" className="py-16 lg:py-24">
       <PageContainer className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
         <Reveal>
           <div className="max-w-3xl space-y-4">
@@ -121,6 +121,9 @@ export function Contact() {
                 meaningful.
               </span>
             </h2>
+            <p className="max-w-3xl text-base leading-8 text-slate-300">
+              Open to roles, projects, and product conversations.
+            </p>
           </div>
 
           <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-[radial-gradient(circle_at_14%_0%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.74),rgba(2,6,23,0.9))] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.24),inset_0_1px_0_rgba(255,255,255,0.05)]">

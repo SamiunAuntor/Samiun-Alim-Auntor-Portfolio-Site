@@ -15,8 +15,8 @@ const rawSocialLinks = [
   },
   {
     label: "Email",
-    shortLabel: "samiunalimauntor@gmail.com",
-    href: "mailto:samiunalimauntor@gmail.com",
+    shortLabel: "auntorsamiun@gmail.com",
+    href: "mailto:auntorsamiun@gmail.com",
     external: true
   }
 ] satisfies SocialLink[];

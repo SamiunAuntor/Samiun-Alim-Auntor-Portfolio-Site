@@ -89,7 +89,7 @@ const iconMap: Record<string, SkillIcon> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 lg:py-28">
+    <section id="skills" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="max-w-3xl">
@@ -102,6 +102,9 @@ export function Skills() {
                 My Work.
               </span>
             </h2>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
+              Tools and technologies I use to build modern web systems.
+            </p>
           </div>
         </Reveal>
 

@@ -9,7 +9,7 @@ export function Projects() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 lg:py-28">
+    <section id="projects" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">

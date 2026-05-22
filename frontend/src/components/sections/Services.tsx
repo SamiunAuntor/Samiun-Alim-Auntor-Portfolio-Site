@@ -6,7 +6,7 @@ const services = [
   {
     title: "Full Stack Web Development",
     description:
-      "Building complete web applications with modern frontend, backend architecture, databases, and real product workflows.",
+      "Building complete web applications with modern frontend, Express-based backend architecture, databases, and real product workflows.",
     icon: LayoutTemplate
   },
   {
@@ -18,7 +18,7 @@ const services = [
   {
     title: "Backend Development",
     description:
-      "Designing structured backend systems with Node.js, Express.js, REST APIs, validation, and clean service architecture.",
+      "Designing structured backend systems with Express.js, TypeScript, REST APIs, validation, and clean service architecture.",
     icon: Blocks
   },
   {
@@ -46,13 +46,13 @@ const services = [
     icon: LockKeyhole
   },
   {
-    title: "Database Design",
+    title: "Database & Schema Design",
     description:
       "Designing efficient database schemas and relational or document data models with PostgreSQL, MongoDB, MySQL, Oracle SQL, and Prisma.",
     icon: ServerCog
   },
   {
-    title: "Deployment",
+    title: "Production Deployment",
     description:
       "Deploying applications on platforms like Vercel, Firebase, Render, and Cloudflare with production-minded configuration and performance.",
     icon: WalletCards
@@ -61,7 +61,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28">
+    <section id="services" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <div className="max-w-3xl">
@@ -69,13 +69,14 @@ export function Services() {
               Services
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
-              What I can{" "}
+              Systems{" "}
               <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                build for you.
+                I Build.
               </span>
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              Product-oriented services centered around modern interfaces, backend workflows, and practical full-stack systems.
+            <p className="mt-5 max-w-4xl text-base leading-8 text-slate-300">
+              Full-stack services focused on interfaces, backend workflows, databases, and
+              deployment-ready products.
             </p>
           </div>
         </Reveal>

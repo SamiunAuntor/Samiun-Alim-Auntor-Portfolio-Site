@@ -16,7 +16,7 @@ export const profile = {
     "Software Engineering student at IUT, focused on MERN, Next.js, backend engineering, system design, and SaaS-style applications that feel polished in production.",
   heroDescription:
     "I build full-stack products that go beyond CRUD, with authentication, dashboards, booking flows, payments, notifications, and backend structure designed to scale.",
-  email: "samiunalimauntor@gmail.com",
+  email: "auntorsamiun@gmail.com",
   phone: "+8801988774499",
   location: "Dhaka, Bangladesh",
   graduation: "Expected graduation: 2027",
@@ -47,14 +47,16 @@ const rawPrimaryEducation = {
   range: "2023 - 2027",
   status: "Currently ongoing",
   areas: [
-    "Object-Oriented Programming",
-    "Design Patterns",
-    "Data Structures and Algorithms",
-    "Database Management Systems",
+    "Software Engineering",
+    "Data Structures & Algorithms",
+    "Database Systems",
     "Operating Systems",
     "Computer Networking",
-    "Software Engineering",
-    "System Design"
+    "Object-Oriented Design",
+    "Design Patterns",
+    "System Design",
+    "Web & Server Programming",
+    "Software Security"
   ]
 } satisfies Education;
 

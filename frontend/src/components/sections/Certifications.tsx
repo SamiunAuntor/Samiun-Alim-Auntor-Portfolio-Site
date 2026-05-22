@@ -14,7 +14,7 @@ const ongoingCertifications = certifications.filter(
 
 export function Certifications() {
   return (
-    <section id="certifications" className="py-20 lg:py-28">
+    <section id="certifications" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
           <SectionHeading
