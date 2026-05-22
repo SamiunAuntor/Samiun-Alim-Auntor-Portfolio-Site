@@ -33,8 +33,8 @@ export default function ProjectsPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-6xl text-base leading-8 text-slate-300">
-            A dedicated archive for project cards, screenshots, repositories, live links, and
-            detailed case studies as each README is added.
+            A curated collection of full-stack products, SaaS-style systems, and real-world web
+            platforms - from idea to architecture, UI, backend, and deployment.
           </p>
         </section>
 

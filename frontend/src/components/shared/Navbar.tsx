@@ -148,14 +148,21 @@ export function Navbar() {
               <button
                 key={item.id}
                 type="button"
-                onClick={() => handleSectionNavigate(item.id)}
-                className={cn(
-                  "rounded-full px-3 py-2 text-xs text-slate-300 transition hover:text-white xl:px-4 xl:text-sm",
-                  activeSection === item.id && "bg-white/[0.06] text-white"
-                )}
-              >
-                {item.label}
-              </button>
+                  onClick={() => handleSectionNavigate(item.id)}
+                  className={cn(
+                    "rounded-full px-3 py-2 text-xs text-slate-300 transition hover:text-white xl:px-4 xl:text-sm",
+                    activeSection === item.id && "bg-white/[0.06] text-white"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      activeSection === item.id &&
+                        "bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent"
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                </button>
             ))}
           </div>
 
@@ -186,15 +193,22 @@ export function Navbar() {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  type="button"
-                  className={cn(
-                    "rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.05]",
-                    activeSection === item.id && "bg-white/[0.06] text-white"
-                  )}
-                  onClick={() => handleSectionNavigate(item.id)}
-                >
-                  {item.label}
-                </button>
+                    type="button"
+                    className={cn(
+                      "rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.05]",
+                      activeSection === item.id && "bg-white/[0.06] text-white"
+                    )}
+                    onClick={() => handleSectionNavigate(item.id)}
+                  >
+                    <span
+                      className={cn(
+                        activeSection === item.id &&
+                          "bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent"
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                  </button>
               ))}
               <button
                 type="button"
