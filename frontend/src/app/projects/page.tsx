@@ -26,13 +26,13 @@ export default function ProjectsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
             Projects
           </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-6xl">
+          <h1 className="mt-4 max-w-5xl text-3xl font-semibold leading-tight text-white sm:text-4xl">
             Full-stack{" "}
             <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
               systems and builds.
             </span>
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+          <p className="mt-5 max-w-6xl text-base leading-8 text-slate-300">
             A dedicated archive for project cards, screenshots, repositories, live links, and
             detailed case studies as each README is added.
           </p>

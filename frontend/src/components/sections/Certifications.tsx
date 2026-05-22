@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight, Award } from "lucide-react";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/shared/SectionHeading";
 import { certifications } from "@/data/certifications";
 
 const completedCertifications = certifications.filter(
@@ -17,11 +16,20 @@ export function Certifications() {
     <section id="certifications" className="py-16 lg:py-24">
       <PageContainer className="flex flex-col gap-10">
         <Reveal>
-          <SectionHeading
-            eyebrow="Certifications"
-            title="Certifications and learning."
-            description="Completed and ongoing learning paths that support my engineering growth."
-          />
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300/90">
+              Certifications
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Certifications and{" "}
+              <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                Learning.
+              </span>
+            </h2>
+            <p className="text-base leading-8 text-slate-300 sm:text-lg">
+              Completed and ongoing learning paths that support my engineering growth.
+            </p>
+          </div>
         </Reveal>
 
         <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">

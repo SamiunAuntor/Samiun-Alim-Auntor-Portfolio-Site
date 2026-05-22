@@ -17,7 +17,7 @@ export function Projects() {
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
                 Featured Projects
               </p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-4xl">
                 Selected{" "}
                 <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
                   Product Systems.

@@ -111,7 +111,7 @@ export function Contact() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
               Contact
             </p>
-            <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
               Have an{" "}
               <span className="bg-gradient-to-r from-cyan-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
                 idea?
