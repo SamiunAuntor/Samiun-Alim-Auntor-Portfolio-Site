@@ -1,6 +1,6 @@
 # Samiun Alim Auntor Portfolio
 
-**Live Site:** [https://samiun-alim-auntor-portfolio-site-frontend-ftycwe7zu.vercel.app/](https://samiun-alim-auntor-portfolio-site-frontend-ftycwe7zu.vercel.app/)
+**Live Site:** [https://samiun-alim-auntor-portfolio-site-f.vercel.app/](https://samiun-alim-auntor-portfolio-site-f.vercel.app/)
 
 A production-focused personal portfolio built as a full-stack monorepo. The frontend presents projects, services, skills, education, certifications, and contact information with a custom dark visual system. The backend powers the contact form with SMTP email delivery.
 
