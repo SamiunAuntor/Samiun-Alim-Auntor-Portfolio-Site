@@ -21,6 +21,7 @@ export async function deliverContactMessage(payload: ContactPayload) {
       messageId: result.messageId
     };
   } catch (error) {
+    console.error("Contact email delivery failed.", error);
     throw new AppError(502, "Unable to send your message right now. Please try again later.");
   }
 }
