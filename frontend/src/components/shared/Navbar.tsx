@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "About", id: "about" },
-  { label: "Skills", id: "skills" },
-  { label: "Services", id: "services" },
   { label: "Projects", id: "projects" },
+  { label: "Services", id: "services" },
+  { label: "Skills", id: "skills" },
   { label: "Education", id: "education" },
   { label: "Certifications", id: "certifications" },
   { label: "Contact", id: "contact" }
@@ -31,7 +31,10 @@ export function Navbar() {
         return;
       }
 
-      const marker = window.scrollY + window.innerHeight * 0.34;
+      const navElement = document.querySelector("header nav");
+      const navHeight =
+        navElement instanceof HTMLElement ? navElement.getBoundingClientRect().height : 76;
+      const marker = window.scrollY + navHeight + window.innerHeight * 0.2;
       const viewportBottom = window.scrollY + window.innerHeight;
       const pageBottom = document.documentElement.scrollHeight - 4;
 
@@ -40,22 +43,30 @@ export function Navbar() {
         return;
       }
 
-      let currentSection: string = navItems[0]?.id ?? "";
+      const sections = navItems
+        .map((item) => {
+          const element = document.getElementById(item.id);
 
-      for (let index = 0; index < navItems.length; index += 1) {
-        const currentItem = navItems[index];
-        const nextItem = navItems[index + 1];
-        const currentSectionElement = document.getElementById(currentItem.id);
+          if (!element) {
+            return null;
+          }
 
-        if (!currentSectionElement) {
-          continue;
-        }
+          return {
+            id: item.id,
+            top: element.getBoundingClientRect().top + window.scrollY
+          };
+        })
+        .filter((section): section is { id: (typeof navItems)[number]["id"]; top: number } =>
+          Boolean(section)
+        )
+        .sort((first, second) => first.top - second.top);
 
-        const currentTop = currentSectionElement.offsetTop;
-        const nextTop = nextItem ? document.getElementById(nextItem.id)?.offsetTop : undefined;
+      let currentSection: string = sections[0]?.id ?? "";
 
-        if (marker >= currentTop && (nextTop === undefined || marker < nextTop)) {
-          currentSection = currentItem.id;
+      for (const section of sections) {
+        if (marker >= section.top) {
+          currentSection = section.id;
+        } else {
           break;
         }
       }
@@ -172,7 +183,7 @@ export function Navbar() {
               onClick={() => handleSectionNavigate("contact")}
               className="rounded-full bg-cyan-300 px-3 py-2 text-xs font-semibold text-slate-950 transition hover:bg-cyan-200 xl:px-4 xl:text-sm"
             >
-              Contact Me
+              Hire Me
             </button>
           </div>
 
@@ -215,7 +226,7 @@ export function Navbar() {
                 className="mt-2 rounded-2xl bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
                 onClick={() => handleSectionNavigate("contact")}
               >
-                Contact Me
+                Hire Me
               </button>
             </div>
           </div>

@@ -21,11 +21,11 @@ export default function HomePage() {
         <SectionDivider />
         <About />
         <SectionDivider />
-        <Skills />
-        <SectionDivider />
         <Projects />
         <SectionDivider />
         <Services />
+        <SectionDivider />
+        <Skills />
         <SectionDivider />
         <Education />
         <SectionDivider />

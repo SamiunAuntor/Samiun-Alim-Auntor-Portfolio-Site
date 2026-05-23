@@ -7,9 +7,9 @@ import { socialLinks } from "@/data/socialLinks";
 
 const footerNavItems = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" }
 ] as const;
