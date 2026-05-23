@@ -23,9 +23,9 @@ export default function HomePage() {
         <SectionDivider />
         <Skills />
         <SectionDivider />
-        <Services />
-        <SectionDivider />
         <Projects />
+        <SectionDivider />
+        <Services />
         <SectionDivider />
         <Education />
         <SectionDivider />
