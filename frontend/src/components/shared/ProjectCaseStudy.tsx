@@ -287,10 +287,29 @@ function ProjectHero({ project, detail, previewImage }: ProjectCaseStudyProps) {
               />
             ) : null}
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.18))]" />
+            {project.links.live ? <LivePreviewBadge href={project.links.live} title={project.title} /> : null}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function LivePreviewBadge({ href, title }: { href: string; title: string }) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Open live ${title} project`}
+      className="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-slate-950/72 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-100 shadow-[0_10px_30px_rgba(2,6,23,0.28)] backdrop-blur-md transition hover:border-emerald-300/35 hover:bg-slate-900/78"
+    >
+      <span className="relative flex h-2.5 w-2.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-45" />
+        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(110,231,183,0.55)]" />
+      </span>
+      Live
+    </Link>
   );
 }
 
@@ -384,9 +403,10 @@ function ProjectLinks({ project, className = "" }: { project: Project; className
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+          style={{ color: "#020617" }}
         >
           Live Site
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-4 w-4" style={{ color: "#020617" }} />
         </Link>
       ) : null}
 
