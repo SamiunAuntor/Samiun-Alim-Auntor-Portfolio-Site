@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { CustomCursor } from "@/components/shared/CustomCursor";
 import { SmoothScroll } from "@/components/shared/SmoothScroll";
 import "./globals.css";
@@ -49,6 +49,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://samiun-alim-auntor.pages.dev"
   }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({

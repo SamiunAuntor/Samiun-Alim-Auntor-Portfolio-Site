@@ -94,7 +94,7 @@ export function About() {
                   const Icon = point.icon;
 
                   return (
-                    <div key={point.text} className="flex items-center gap-4 text-sm text-slate-300">
+                    <div key={point.text} className="flex items-start gap-4 text-sm leading-7 text-slate-300 sm:items-center sm:leading-normal">
                       <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-sky-300/15 bg-sky-300/[0.06] text-sky-300">
                         <Icon className="h-4 w-4" />
                       </span>
@@ -104,7 +104,7 @@ export function About() {
                 })}
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-[minmax(10rem,0.82fr)_minmax(18rem,1.28fr)_minmax(13rem,1fr)]">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-[minmax(10rem,0.82fr)_minmax(18rem,1.28fr)_minmax(13rem,1fr)]">
                 {stats.map((stat) => {
                   const Icon = stat.icon;
 
@@ -114,7 +114,7 @@ export function About() {
                       className="flex min-h-20 items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur"
                     >
                       <div>
-                        <div className="whitespace-nowrap text-lg font-semibold leading-none text-sky-300 sm:text-xl xl:text-[1.35rem]">
+                        <div className="text-base font-semibold leading-tight text-sky-300 min-[420px]:whitespace-nowrap sm:text-lg xl:text-[1.35rem]">
                           {stat.value}
                         </div>
                         <p className="mt-1.5 text-sm font-medium leading-5 text-slate-300">

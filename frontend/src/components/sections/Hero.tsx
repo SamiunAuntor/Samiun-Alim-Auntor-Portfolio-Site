@@ -109,12 +109,12 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
+      className="relative max-w-full overflow-hidden pb-14 pt-10 sm:pb-16 sm:pt-16 lg:pb-18 lg:pt-18 xl:pb-20 xl:pt-20"
     >
       <PageContainer>
-        <div className="grid w-full gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center xl:grid-cols-2">
-          <div className="space-y-6 sm:space-y-7">
-            <Reveal className="space-y-7">
+        <div className="grid w-full min-w-0 gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center xl:grid-cols-2">
+          <div className="min-w-0 space-y-6 sm:space-y-7">
+            <Reveal className="min-w-0 space-y-7">
               <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-sky-300/20 bg-sky-300/[0.055] px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.08em] text-sky-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur sm:px-4 sm:text-[10px]">
                 <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_16px_rgba(125,211,252,0.9)]" />
                 <span className="truncate">Full Stack Software Engineer</span>
@@ -128,7 +128,7 @@ export function Hero() {
                   </span>
                   .
                 </p>
-                <h1 className="max-w-[48rem] text-[clamp(2.65rem,12vw,4.2rem)] font-semibold leading-[1.08] text-white sm:text-[4rem] lg:text-[3.25rem] xl:text-[4.2rem]">
+                <h1 className="max-w-full break-words text-[clamp(2.05rem,9.5vw,3rem)] font-semibold leading-[1.1] text-white sm:max-w-[48rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[3.25rem] xl:text-[4.2rem]">
                   I build{" "}
                   <span className="bg-gradient-to-r from-sky-200 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
                     scalable
@@ -142,17 +142,17 @@ export function Hero() {
                     backend systems.
                   </span>
                 </h1>
-                <p className="max-w-[44rem] text-sm leading-7 text-slate-300 sm:text-base sm:leading-8 lg:max-w-[35rem] xl:max-w-[44rem]">
+                <p className="max-w-full text-sm leading-7 text-slate-300 sm:max-w-[44rem] sm:text-base sm:leading-8 lg:max-w-[35rem] xl:max-w-[44rem]">
                   I design and build production-ready applications with clean architecture,
                   real-world workflows, and a focus on performance, security, and great UX.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="flex flex-col gap-3 min-[440px]:flex-row min-[440px]:flex-wrap sm:gap-4">
+            <Reveal delay={0.08} className="flex min-w-0 flex-col gap-3 min-[520px]:flex-row min-[520px]:flex-wrap sm:gap-4">
               <Link
                 href="#projects"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-sky-200/28 bg-gradient-to-r from-sky-300 to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(56,189,248,0.16)] transition hover:translate-y-[-1px]"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-3 rounded-2xl border border-sky-200/28 bg-gradient-to-r from-sky-300 to-indigo-500 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(56,189,248,0.16)] transition hover:translate-y-[-1px] min-[520px]:w-auto sm:px-6"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
@@ -160,14 +160,14 @@ export function Hero() {
               <Link
                 href={profile.resumePath}
                 download="Samiun-Alim-Auntor-Resume.pdf"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/16 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,6,23,0.16)] backdrop-blur transition hover:border-sky-300/28 hover:bg-white/[0.07]"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-3 rounded-2xl border border-white/16 bg-white/[0.04] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,6,23,0.16)] backdrop-blur transition hover:border-sky-300/28 hover:bg-white/[0.07] min-[520px]:w-auto sm:px-6"
               >
                 <Download className="h-4 w-4" />
                 Download Resume
               </Link>
             </Reveal>
 
-            <Reveal delay={0.14} className="flex flex-wrap gap-4">
+            <Reveal delay={0.14} className="flex flex-wrap gap-3 sm:gap-4">
               {githubLink ? (
                 <SocialIcon href={githubLink.href} label="GitHub profile">
                   <Github className="h-5 w-5" />
@@ -187,7 +187,7 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.12}>
+          <Reveal delay={0.12} className="min-w-0">
             <EngineeringProfileCard />
           </Reveal>
         </div>
@@ -218,8 +218,8 @@ function EngineeringProfileCard() {
   }, []);
 
   return (
-    <div className="relative mx-auto w-full max-w-[42rem] lg:mr-0">
-      <div className="relative rounded-[1.6rem] border border-sky-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(96,165,250,0.22),transparent_32%),linear-gradient(180deg,rgba(10,18,36,0.9),rgba(4,9,20,0.96))] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_26px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-6 lg:min-h-[34rem] lg:p-5 xl:min-h-[38rem] xl:p-8">
+    <div className="relative mx-auto w-full min-w-0 max-w-[42rem] lg:mr-0">
+      <div className="relative min-w-0 rounded-[1.6rem] border border-sky-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(96,165,250,0.22),transparent_32%),linear-gradient(180deg,rgba(10,18,36,0.9),rgba(4,9,20,0.96))] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_26px_100px_rgba(2,6,23,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-6 lg:min-h-[34rem] lg:p-5 xl:min-h-[38rem] xl:p-8">
         <div className="relative">
           <div className="mb-5 flex items-center justify-between gap-3 sm:mb-6 sm:gap-4">
             <div className="flex min-w-0 items-center gap-2 text-[10px] font-semibold uppercase text-sky-200 sm:gap-3 sm:text-[11px]">
@@ -228,18 +228,18 @@ function EngineeringProfileCard() {
               </span>
               <span className="truncate">Engineering Profile</span>
             </div>
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-400 sm:text-[11px] sm:tracking-[0.26em]">
+            <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 sm:px-3 sm:text-[11px] sm:tracking-[0.26em]">
               TypeScript
             </span>
           </div>
 
-          <div className="rounded-[1.35rem] border border-white/10 bg-[#050914]/88 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:rounded-[1.5rem] sm:p-6 lg:p-4 xl:p-6">
+          <div className="min-w-0 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#050914]/88 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:rounded-[1.5rem] sm:p-6 lg:p-4 xl:p-6">
             <div className="mb-5 flex gap-2">
               <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
               <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
               <span className="h-3 w-3 rounded-full bg-[#28c840]" />
             </div>
-            <pre className="overflow-hidden whitespace-pre-wrap break-words text-[9px] leading-6 min-[420px]:text-[10px] sm:whitespace-pre sm:text-[10.5px] sm:leading-8 lg:text-[9px] lg:leading-7 min-[1180px]:text-[10px] xl:text-[11.5px]">
+            <pre className="max-w-full overflow-x-auto whitespace-pre text-[8.5px] leading-6 sm:text-[10.5px] sm:leading-8 lg:text-[9px] lg:leading-7 min-[1180px]:text-[10px] xl:text-[11.5px]">
               <code>
                 <CodeLine number="01" active={bootReady}>
                   <span className="text-[#C586C0]">const</span>{" "}
@@ -388,7 +388,7 @@ function SocialIcon({
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noreferrer" : undefined}
       aria-label={label}
-      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.04] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur transition hover:border-sky-300/25 hover:bg-white/[0.07]"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.04] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur transition hover:border-sky-300/25 hover:bg-white/[0.07] sm:h-12 sm:w-12"
     >
       {children}
     </Link>

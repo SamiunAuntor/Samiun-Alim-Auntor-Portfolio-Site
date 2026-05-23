@@ -67,7 +67,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
   });
 
   return (
-    <main className="min-h-screen py-10 lg:py-14">
+    <main className="min-h-screen py-8 sm:py-10 lg:py-14">
       <PageContainer>
         <div className="flex flex-wrap items-center gap-3">
           <BackButton />
@@ -81,18 +81,18 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
 
         <ProjectHero project={project} detail={detail} previewImage={previewImage} />
 
-        <section className="grid gap-8 py-12 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
+        <section className="grid gap-6 py-10 sm:gap-8 sm:py-12 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-28">
-            <nav className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
+            <nav className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-300/85">
                 Case Study
               </p>
-              <div className="mt-4 flex flex-col gap-2">
+              <div className="mt-4 flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">
                 {visibleSections.map((section) => (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="inline-flex items-center gap-2 rounded-2xl border border-white/8 bg-slate-950/35 px-3 py-3 text-sm text-slate-300 transition hover:border-sky-300/20 hover:text-white"
+                    className="inline-flex shrink-0 items-center gap-2 rounded-2xl border border-white/8 bg-slate-950/35 px-3 py-3 text-sm text-slate-300 transition hover:border-sky-300/20 hover:text-white lg:shrink"
                   >
                     <CircleDot className="h-4 w-4 text-sky-300/80" />
                     <span>{section.label}</span>
@@ -135,7 +135,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
                   {detail.techStack.map((category) => (
                     <article
                       key={category.category}
-                      className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5"
+                      className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-4 sm:p-5"
                     >
                       <h3 className="text-base font-semibold text-white">{category.category}</h3>
                       <div className="mt-4 flex flex-wrap gap-2">
@@ -160,7 +160,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
                   {detail.architecture.steps.map((step, index) => (
                     <article
                       key={step.title}
-                      className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5 sm:grid-cols-[auto_minmax(0,1fr)]"
+                      className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-4 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-5"
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-sky-300/15 bg-sky-300/[0.07] text-sm font-semibold text-sky-200">
                         {String(index + 1).padStart(2, "0")}
@@ -198,7 +198,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
                   {detail.visuals.map((visual) => (
                     <article
                       key={visual.title}
-                      className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5"
+                      className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-4 sm:p-5"
                     >
                       <h3 className="text-base font-semibold text-white">{visual.title}</h3>
                       <p className="mt-2 text-sm leading-7 text-slate-300">{visual.description}</p>
@@ -218,7 +218,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
                   {detail.challenges.map((item) => (
                     <article
                       key={item.challenge}
-                      className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5 lg:grid-cols-2"
+                      className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-4 sm:p-5 lg:grid-cols-2"
                     >
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-200/80">
@@ -254,12 +254,12 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
 
 function ProjectHero({ project, detail, previewImage }: ProjectCaseStudyProps) {
   return (
-    <section className="grid gap-10 pt-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
+    <section className="grid gap-8 pt-10 sm:gap-10 sm:pt-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
           {project.eyebrow}
         </p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight text-white sm:text-6xl">
+        <h1 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
           {project.title}
         </h1>
         <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">{detail.tagline}</p>
@@ -275,7 +275,7 @@ function ProjectHero({ project, detail, previewImage }: ProjectCaseStudyProps) {
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
         <div className="relative aspect-[3/2] bg-[radial-gradient(circle_at_25%_15%,rgba(56,189,248,0.16),transparent_36%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))]">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-35" />
-          <div className="absolute inset-6 overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/45">
+          <div className="absolute inset-3 overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-950/45 sm:inset-6 sm:rounded-[1.5rem]">
             {previewImage ? (
               <Image
                 src={previewImage}
@@ -302,7 +302,7 @@ function LivePreviewBadge({ href, title }: { href: string; title: string }) {
       target="_blank"
       rel="noreferrer"
       aria-label={`Open live ${title} project`}
-      className="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-slate-950/72 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-100 shadow-[0_10px_30px_rgba(2,6,23,0.28)] backdrop-blur-md transition hover:border-emerald-300/35 hover:bg-slate-900/78"
+      className="absolute right-3 top-3 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-slate-950/72 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-100 shadow-[0_10px_30px_rgba(2,6,23,0.28)] backdrop-blur-md transition hover:border-emerald-300/35 hover:bg-slate-900/78 sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-xs"
     >
       <span className="relative flex h-2.5 w-2.5">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-45" />
@@ -327,7 +327,7 @@ function CaseStudySection({
   return (
     <section
       id={id}
-      className="scroll-mt-28 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_56px_rgba(2,6,23,0.22),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur sm:p-7"
+      className="scroll-mt-28 rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.22),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur sm:rounded-[2rem] sm:p-7"
     >
       <div className="flex items-start gap-3">
         <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border border-sky-300/15 bg-sky-300/[0.07]">
@@ -337,7 +337,7 @@ function CaseStudySection({
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-300/80">
             {eyebrow}
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">{title}</h2>
+          <h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl">{title}</h2>
         </div>
       </div>
       <div className="mt-6">{children}</div>
@@ -351,7 +351,7 @@ function GroupedCards({ groups }: { groups: Array<{ title: string; items: string
       {groups.map((group) => (
         <article
           key={group.title}
-          className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5"
+          className="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-4 sm:p-5"
         >
           <h3 className="text-base font-semibold text-white">{group.title}</h3>
           <ul className="mt-4 space-y-3">
@@ -386,7 +386,7 @@ function BulletGrid({ items }: { items: string[] }) {
 
 function StatusPill({ label }: { label: string }) {
   return (
-    <span className="inline-flex rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm font-semibold text-slate-200">
+    <span className="inline-flex max-w-full rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm font-semibold text-slate-200">
       {label}
     </span>
   );
@@ -402,7 +402,7 @@ function ProjectLinks({ project, className = "" }: { project: Project; className
           href={project.links.live}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 sm:w-auto"
           style={{ color: "#020617" }}
         >
           Live Site
@@ -415,7 +415,7 @@ function ProjectLinks({ project, className = "" }: { project: Project; className
           href={project.links.github}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08] sm:w-auto"
         >
           <Github className="h-4 w-4" />
           {hasSplitRepos ? "Client Repository" : "GitHub Repository"}
@@ -427,7 +427,7 @@ function ProjectLinks({ project, className = "" }: { project: Project; className
           href={project.links.backend}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08] sm:w-auto"
         >
           <Github className="h-4 w-4" />
           Server Repository
@@ -439,13 +439,13 @@ function ProjectLinks({ project, className = "" }: { project: Project; className
 
 function FinalCta({ project }: { project: Project }) {
   return (
-    <section className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.94))] p-6 shadow-[0_18px_56px_rgba(2,6,23,0.22)] sm:p-7">
+    <section className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.94))] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.22)] sm:rounded-[2rem] sm:p-7">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-300/80">
             Final Links / CTA
           </p>
-          <h2 className="mt-3 text-2xl font-semibold text-white">Explore {project.title}</h2>
+          <h2 className="mt-3 text-xl font-semibold text-white sm:text-2xl">Explore {project.title}</h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
             Open the live product, review the repository, or return to the full projects archive.
           </p>
@@ -454,7 +454,7 @@ function FinalCta({ project }: { project: Project }) {
           <ProjectLinks project={project} />
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300/30 hover:bg-white/[0.08] sm:w-auto"
           >
             Back to Projects
             <ArrowRight className="h-4 w-4" />

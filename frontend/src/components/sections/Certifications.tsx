@@ -26,7 +26,7 @@ export function Certifications() {
                 Learning.
               </span>
             </h2>
-            <p className="text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="text-base leading-8 text-slate-300">
               Completed and ongoing learning paths that support my engineering growth.
             </p>
           </div>
@@ -67,8 +67,8 @@ function CertificationCard({
 }) {
   return (
     <Reveal delay={delay}>
-      <article className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.22)] backdrop-blur">
-        <div className="flex items-start gap-4">
+      <article className="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.22)] backdrop-blur sm:rounded-[1.8rem] sm:p-5">
+        <div className="flex flex-col gap-4 min-[420px]:flex-row min-[420px]:items-start">
           <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08] text-cyan-200">
             <Award className="h-5 w-5" />
           </span>
@@ -89,7 +89,7 @@ function CertificationCard({
               </span>
             </div>
 
-            <h3 className="mt-4 text-xl font-semibold text-white">{certification.title}</h3>
+            <h3 className="mt-4 text-lg font-semibold text-white sm:text-xl">{certification.title}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-300">{certification.summary}</p>
 
             {certification.track || certification.note ? (
@@ -113,7 +113,7 @@ function CertificationCard({
                   href={certification.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-sm font-medium text-white transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-sm font-medium text-white transition hover:border-sky-300/30 hover:bg-white/[0.08] sm:w-auto"
                 >
                   View Certificate
                   <ArrowUpRight className="h-4 w-4" />

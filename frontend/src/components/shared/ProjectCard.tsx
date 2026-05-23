@@ -55,7 +55,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <article className="group flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/[0.04] shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur transition duration-300 hover:border-sky-300/25 hover:bg-white/[0.055]">
       <div className="relative aspect-[3/2] overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_25%_15%,rgba(56,189,248,0.16),transparent_36%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-35" />
-        <div className="absolute inset-4 overflow-hidden rounded-[1.4rem] border border-white/10 bg-slate-950/55">
+        <div className="absolute inset-3 overflow-hidden rounded-[1.2rem] border border-white/10 bg-slate-950/55 sm:inset-4 sm:rounded-[1.4rem]">
           {previewImage ? (
             <Image
               src={previewImage}
@@ -69,7 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="space-y-2.5">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-300/80">
             {project.eyebrow}
@@ -99,10 +99,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           })}
         </div>
 
-        <div className="mt-auto grid grid-cols-[1.45fr_0.95fr_0.95fr] gap-2.5 pt-5">
+        <div className="mt-auto grid grid-cols-2 gap-2.5 pt-5 min-[520px]:grid-cols-[1.45fr_0.95fr_0.95fr]">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-[#020617] transition hover:bg-cyan-200"
+            className="col-span-2 inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-[#020617] transition hover:bg-cyan-200 min-[520px]:col-span-1"
             style={{ color: "#020617" }}
           >
             View Details

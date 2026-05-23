@@ -130,9 +130,9 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 pt-3 sm:pt-4">
       <PageContainer>
-        <nav className="flex items-center justify-between rounded-full border border-white/10 bg-slate-950/70 px-3 py-2.5 shadow-[0_14px_40px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:px-5 sm:py-3 xl:px-6">
-          <Link href="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/12 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.18),rgba(15,23,42,0.92))] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:h-12 sm:w-12">
+        <nav className="flex min-w-0 items-center justify-between gap-3 rounded-full border border-white/10 bg-slate-950/70 px-3 py-2.5 shadow-[0_14px_40px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:px-5 sm:py-3 xl:px-6">
+          <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 lg:flex-none">
+            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/12 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.18),rgba(15,23,42,0.92))] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] min-[390px]:h-11 min-[390px]:w-11 sm:h-12 sm:w-12">
               {avatarFailed ? (
                 <span className="text-base font-semibold tracking-[0.18em] text-slate-100">S</span>
               ) : (
@@ -147,8 +147,8 @@ export function Navbar() {
               )}
             </span>
             <div className="min-w-0">
-              <p className="truncate text-xs font-semibold text-white sm:text-sm">{profile.name}</p>
-              <p className="truncate text-[11px] text-slate-400 sm:text-xs">
+              <p className="truncate text-[11px] font-semibold text-white min-[390px]:text-xs sm:text-sm">{profile.name}</p>
+              <p className="truncate text-[10px] text-slate-400 min-[390px]:text-[11px] sm:text-xs">
                 Full-stack software engineer
               </p>
             </div>
@@ -189,7 +189,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white sm:h-11 sm:w-11 lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white sm:h-11 sm:w-11 lg:hidden"
             onClick={() => setMenuOpen((current) => !current)}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}

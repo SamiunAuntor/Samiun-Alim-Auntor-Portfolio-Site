@@ -122,10 +122,10 @@ export function Skills() {
                     return (
                       <div
                         key={item}
-                        className="flex w-fit items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/45 px-3 py-2.5 text-xs font-medium text-slate-200"
+                        className="flex max-w-full items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/45 px-3 py-2.5 text-xs font-medium text-slate-200"
                       >
                         <Icon className={`h-4 w-4 shrink-0 ${skill?.color ?? "text-sky-300"}`} />
-                        <span className="whitespace-nowrap">{item}</span>
+                        <span className="min-w-0 break-words">{item}</span>
                       </div>
                     );
                   })}

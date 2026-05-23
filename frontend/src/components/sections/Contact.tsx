@@ -126,7 +126,7 @@ export function Contact() {
             </p>
           </div>
 
-          <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-[radial-gradient(circle_at_14%_0%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.74),rgba(2,6,23,0.9))] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.24),inset_0_1px_0_rgba(255,255,255,0.05)]">
+          <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-[radial-gradient(circle_at_14%_0%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.74),rgba(2,6,23,0.9))] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.24),inset_0_1px_0_rgba(255,255,255,0.05)] sm:rounded-[1.8rem] sm:p-5">
             <div className="grid gap-3">
               <ContactItem
                 icon={<Mail className="h-4 w-4" />}
@@ -167,7 +167,7 @@ export function Contact() {
         <Reveal delay={0.08}>
           <form
             onSubmit={handleSubmit}
-            className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.94))] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.35)]"
+            className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.94))] p-4 shadow-[0_24px_80px_rgba(2,6,23,0.35)] sm:rounded-[2rem] sm:p-6"
             noValidate
           >
             <div className="grid gap-5 sm:grid-cols-2">
@@ -271,7 +271,7 @@ function ContactItem({
   external?: boolean;
 }) {
   const content = (
-    <div className="flex items-center gap-3 rounded-[1.15rem] border border-white/10 bg-slate-950/35 px-4 py-3 transition hover:border-sky-300/20 hover:bg-slate-950/45">
+    <div className="flex items-start gap-3 rounded-[1.15rem] border border-white/10 bg-slate-950/35 px-4 py-3 transition hover:border-sky-300/20 hover:bg-slate-950/45 sm:items-center">
       <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white">
         {icon}
       </span>

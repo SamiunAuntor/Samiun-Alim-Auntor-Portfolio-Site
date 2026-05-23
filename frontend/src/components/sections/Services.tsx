@@ -87,11 +87,11 @@ export function Services() {
 
             return (
               <Reveal key={service.title} delay={0.05 * index}>
-                <article className="h-full rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
+                <article className="h-full rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur sm:rounded-[1.8rem] sm:p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-300/15 bg-sky-300/[0.07] text-sky-300">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-white">{service.title}</h3>
+                  <h3 className="mt-5 text-lg font-semibold text-white sm:text-xl">{service.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
                 </article>
               </Reveal>

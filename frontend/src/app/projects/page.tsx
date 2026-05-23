@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen px-3 py-10 sm:px-5 lg:py-14 xl:px-6">
+    <main className="min-h-screen px-4 py-8 sm:px-5 sm:py-10 lg:py-14 xl:px-6">
       <div className="mx-auto w-full max-w-[calc(80rem-1.5rem)] sm:max-w-[calc(80rem-2.5rem)] xl:max-w-[calc(80rem-3rem)]">
         <Link
           href="/"
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
           Back Home
         </Link>
 
-        <section className="pt-12">
+        <section className="pt-10 sm:pt-12">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300/90">
             Projects
           </p>
@@ -32,13 +32,13 @@ export default function ProjectsPage() {
               systems and builds.
             </span>
           </h1>
-          <p className="mt-5 max-w-6xl text-base leading-8 text-slate-300">
+          <p className="mt-5 max-w-6xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
             A curated collection of full-stack products, SaaS-style systems, and real-world web
             platforms - from idea to architecture, UI, backend, and deployment.
           </p>
         </section>
 
-        <section className="grid gap-5 pt-12 md:grid-cols-2 xl:grid-cols-3">
+        <section className="grid gap-5 pt-10 sm:pt-12 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
