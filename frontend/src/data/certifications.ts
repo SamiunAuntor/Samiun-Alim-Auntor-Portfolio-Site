@@ -32,9 +32,10 @@ const rawCertifications = [
     provider: "Programming Hero",
     summary:
       "An advanced continuation of the earlier web development journey with TypeScript, backend engineering, Next.js, PostgreSQL, Prisma, testing, and deployment topics.",
-    status: "Ongoing",
+    status: "Completed",
     track: "Programming Hero web development path",
-    note: "Continuation of Complete Web Development"
+    note: "Continuation of Complete Web Development",
+    certificateNote: "Certificate pending"
   },
   {
     title: "CSE Fundamentals",

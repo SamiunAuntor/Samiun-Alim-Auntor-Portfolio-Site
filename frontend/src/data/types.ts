@@ -100,7 +100,8 @@ export const certificationSchema = z.object({
   status: z.enum(["Completed", "Ongoing"]),
   href: z.string().url().optional(),
   track: z.string().optional(),
-  note: z.string().optional()
+  note: z.string().optional(),
+  certificateNote: z.string().optional()
 });
 
 export const educationSchema = z.object({

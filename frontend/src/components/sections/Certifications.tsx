@@ -1,14 +1,30 @@
 import Link from "next/link";
-import { ArrowUpRight, Award } from "lucide-react";
+import Image, { type StaticImageData } from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { certifications } from "@/data/certifications";
+import ibmLogo from "@/assets/certification/ibm_logo.png";
+import phitronLogo from "@/assets/certification/phitron_logo.png";
+import programmingHeroLogo from "@/assets/certification/programminghero_logo.jpg";
+import simplilearnLogo from "@/assets/certification/simplilearn_logo.jpg";
+
+const providerLogos: Record<string, StaticImageData> = {
+  "Programming Hero": programmingHeroLogo,
+  "IBM Skills Network": ibmLogo,
+  Simplilearn: simplilearnLogo,
+  Phitron: phitronLogo,
+};
 
 const completedCertifications = certifications.filter(
-  (certification) => certification.status === "Completed"
+  (certification) =>
+    certification.status === "Completed" &&
+    certification.title !== "Next Level Web Development"
 );
 const ongoingCertifications = certifications.filter(
-  (certification) => certification.status === "Ongoing"
+  (certification) =>
+    certification.status === "Ongoing" ||
+    certification.title === "Next Level Web Development"
 );
 
 export function Certifications() {
@@ -69,8 +85,18 @@ function CertificationCard({
     <Reveal delay={delay}>
       <article className="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.22)] backdrop-blur sm:rounded-[1.8rem] sm:p-5">
         <div className="flex flex-col gap-4 min-[420px]:flex-row min-[420px]:items-start">
-          <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08] text-cyan-200">
-            <Award className="h-5 w-5" />
+          <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08]">
+            <Image
+              src={providerLogos[certification.provider]}
+              alt={`${certification.provider} logo`}
+              fill
+              sizes="48px"
+              className={
+                certification.provider === "IBM Skills Network"
+                  ? "object-contain p-1.5"
+                  : "object-cover"
+              }
+            />
           </span>
 
           <div className="min-w-0 flex-1">
@@ -92,7 +118,7 @@ function CertificationCard({
             <h3 className="mt-4 text-lg font-semibold text-white sm:text-xl">{certification.title}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-300">{certification.summary}</p>
 
-            {certification.track || certification.note ? (
+            {certification.track || certification.note || certification.certificateNote ? (
               <div className="mt-4 flex flex-wrap gap-2">
                 {certification.track ? (
                   <span className="inline-flex rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
@@ -102,6 +128,11 @@ function CertificationCard({
                 {certification.note ? (
                   <span className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/[0.08] px-3 py-1 text-xs text-cyan-100">
                     {certification.note}
+                  </span>
+                ) : null}
+                {certification.certificateNote ? (
+                  <span className="inline-flex rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs text-amber-100">
+                    {certification.certificateNote}
                   </span>
                 ) : null}
               </div>
