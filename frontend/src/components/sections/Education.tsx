@@ -1,8 +1,16 @@
-import { GraduationCap } from "lucide-react";
+import Image, { type StaticImageData } from "next/image";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { Reveal } from "@/components/shared/Reveal";
 import { TechBadge } from "@/components/shared/TechBadge";
 import { academicHistory, education } from "@/data/site";
+import brrihsLogo from "@/assets/education/brrihs.png";
+import gccLogo from "@/assets/education/gcc.png";
+import iutLogo from "@/assets/education/iut.png";
+
+const institutionLogos: Record<string, StaticImageData> = {
+  "Gazipur Cantonment College": gccLogo,
+  "BRRI High School": brrihsLogo,
+};
 
 export function Education() {
   return (
@@ -37,9 +45,22 @@ export function Education() {
                     {education.status}
                   </p>
                 </div>
-                <h3 className="text-xl font-semibold text-white sm:text-2xl">{education.degree}</h3>
-                <p className="text-base text-slate-300">{education.institution}</p>
-                <p className="text-sm text-slate-400">{education.range}</p>
+                <div className="flex items-start gap-4">
+                  <span className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-white">
+                    <Image
+                      src={iutLogo}
+                      alt="Islamic University of Technology logo"
+                      fill
+                      sizes="56px"
+                      className="object-contain p-2"
+                    />
+                  </span>
+                  <div className="min-w-0 space-y-3">
+                    <h3 className="text-xl font-semibold text-white sm:text-2xl">{education.degree}</h3>
+                    <p className="text-base text-slate-300">{education.institution}</p>
+                    <p className="text-sm text-slate-400">{education.range}</p>
+                  </div>
+                </div>
               </div>
 
               <p className="mt-6 text-sm leading-7 text-slate-300">
@@ -62,8 +83,14 @@ export function Education() {
               <Reveal key={item.degree} delay={0.08 + index * 0.05}>
                 <article className="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_18px_56px_rgba(2,6,23,0.22)] backdrop-blur sm:rounded-[1.8rem] sm:p-5">
                   <div className="flex flex-col gap-4 min-[420px]:flex-row min-[420px]:items-start">
-                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08] text-cyan-200">
-                      <GraduationCap className="h-5 w-5" />
+                    <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.08]">
+                      <Image
+                        src={institutionLogos[item.institution]}
+                        alt={`${item.institution} logo`}
+                        fill
+                        sizes="48px"
+                        className="object-contain p-1.5"
+                      />
                     </span>
 
                     <div className="min-w-0 flex-1">
