@@ -480,6 +480,397 @@ const rawProjectDetails = [
       "Blood Bridge strengthened my understanding of role-based dashboards and protected workflow design.",
       "It also helped me practice connecting public discovery pages with authenticated operational features."
     ]
+  },
+  {
+    slug: "legacy-vault",
+    type: "Full-stack Digital Inheritance Platform",
+    status: "Completed",
+    tagline:
+      "A secure vault for preserving sensitive records and releasing them to a trusted successor only after verification and admin approval.",
+    overview:
+      "LegacyVault is a digital inheritance platform that helps users organize documents, final wishes, future messages, verification questions, and successor instructions in one protected system. A successor can request access through a structured claim flow, but vault information is released only after answer scoring and admin review.",
+    purpose:
+      "The project addresses a sensitive real-world problem: important personal, legal, financial, and digital records are often scattered or inaccessible when their owner becomes unavailable. LegacyVault creates a controlled path for preserving that information and transferring access without exposing private data prematurely.",
+    role: {
+      summary:
+        "This was a collaborative project. I built the complete frontend experience and owned the core document-claiming workflow end to end, implementing both its frontend interactions and backend behavior.",
+      contributions: [
+        "Designed and implemented the full React frontend across public, owner, successor, and admin experiences.",
+        "Built the complete document-claiming workflow from successor submission through verification, review, and released vault access.",
+        "Implemented the frontend and backend portions of the core claim workflow, including state handling and API integration.",
+        "Connected protected dashboards, document management, successor setup, verification questions, and admin review surfaces.",
+        "Integrated Firebase authentication and backend-controlled document interactions into the user experience."
+      ]
+    },
+    keyFeatures: [
+      {
+        title: "Vault Owner Features",
+        items: [
+          "Protected dashboard for documents, successors, verification questions, final wishes, and future messages.",
+          "Secure document upload and retrieval through backend-controlled Cloudinary storage.",
+          "Trusted-successor registration and access-state management."
+        ]
+      },
+      {
+        title: "Successor Claim Features",
+        items: [
+          "Public claim portal for submitting identity details and verification answers.",
+          "Backend verification scoring against securely hashed answers.",
+          "Approved access flow for released documents, wishes, and future messages."
+        ]
+      },
+      {
+        title: "Admin Features",
+        items: [
+          "Claim-review dashboard with approval and rejection controls.",
+          "Audit-log visibility for important vault and claim events.",
+          "Protected admin routes and operational dashboard data."
+        ]
+      },
+      {
+        title: "Security Features",
+        items: [
+          "Firebase identity verification and bearer-token-protected API routes.",
+          "bcrypt-hashed verification answers and role-protected admin endpoints.",
+          "Controlled file handling through Multer and Cloudinary."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["React 19", "Vite", "React Router", "Tailwind CSS", "TanStack Query", "Framer Motion"] },
+      { category: "Backend", items: ["Node.js", "Express 5", "Zod"] },
+      { category: "Database", items: ["MongoDB", "Mongoose"] },
+      { category: "Authentication / Security", items: ["Firebase Auth", "Firebase Admin SDK", "JWT", "bcryptjs"] },
+      { category: "Storage / Services", items: ["Cloudinary", "Multer", "Axios"] },
+      { category: "Deployment", items: ["Vercel"] }
+    ],
+    architecture: {
+      intro:
+        "LegacyVault uses a React client with authenticated route groups and an Express API organized into feature modules. The backend owns claim verification, access decisions, persistence, and secure document operations.",
+      steps: [
+        {
+          title: "Vault Preparation",
+          description:
+            "The owner stores documents, wishes, messages, successor details, and verification questions through protected dashboard workflows."
+        },
+        {
+          title: "Claim Submission",
+          description:
+            "A successor enters the claim portal, provides identity details, and answers the owner's verification questions."
+        },
+        {
+          title: "Verification and Review",
+          description:
+            "The backend scores submitted answers and places the claim into an admin-controlled approval or rejection workflow."
+        },
+        {
+          title: "Controlled Release",
+          description:
+            "After approval, the successor gains access only to the released vault documents, final wishes, and future messages."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "Owner Dashboard",
+        description:
+          "The primary dashboard organizes documents, successors, questions, wishes, messages, claims, and settings."
+      },
+      {
+        title: "Document Vault",
+        description:
+          "Document screens support secure upload, categorization, retrieval, status changes, and deletion."
+      },
+      {
+        title: "Successor Claim Portal",
+        description:
+          "The claim experience guides successors through identity details and verification answers."
+      },
+      {
+        title: "Admin Claim Review",
+        description:
+          "Admin views surface pending claims, verification results, approval controls, and audit history."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Designing a sensitive claim workflow that does not expose vault data too early.",
+        solution:
+          "I separated claim submission, answer scoring, admin review, and released access into explicit states enforced across both the frontend and backend."
+      },
+      {
+        challenge: "Keeping several user experiences coherent within one frontend.",
+        solution:
+          "I created distinct public, owner, successor, and admin layouts while maintaining shared interaction and visual patterns throughout the application."
+      },
+      {
+        challenge: "Coordinating authentication, document storage, and workflow state across the stack.",
+        solution:
+          "I connected Firebase identity, protected API services, Cloudinary-backed files, and TanStack Query state through clear service and route boundaries."
+      }
+    ],
+    learnings: [
+      "LegacyVault strengthened my ability to design and implement a complete multi-step workflow across frontend and backend boundaries.",
+      "Building the full frontend improved my understanding of organizing role-specific experiences without fragmenting the overall product.",
+      "The project deepened my awareness of privacy, controlled access, and explicit state transitions when handling sensitive information."
+    ]
+  },
+  {
+    slug: "shei-it",
+    type: "Full-stack Agency Platform / CMS",
+    status: "Live",
+    tagline:
+      "A production agency platform that pairs a polished public website with secure, database-backed content management and operational workflows.",
+    overview:
+      "Shei IT—meaning Excellent IT in Bengali—is a production-ready full-stack platform for a digital services agency. It presents services, portfolio work, case studies, pricing, company information, and contact paths publicly while giving administrators secure control over the content and operational data behind the site.",
+    purpose:
+      "A growing agency needs more than a static landing page because its services, projects, SEO information, analytics configuration, and customer inquiries change continuously. Shei IT was built to make those areas maintainable through a protected content-management experience instead of requiring source-code changes for every update.",
+    role: {
+      summary:
+        "This was a two-developer team project where I worked as a full-stack developer. I was responsible for the entire product outside the blog section, covering the public frontend, administration experience, backend modules, data flows, integrations, and deployment-facing behavior for those areas.",
+      contributions: [
+        "Built the public-facing pages, responsive layouts, theme behavior, dynamic service and portfolio experiences, and reusable frontend system outside the blog section.",
+        "Implemented the protected admin interfaces and workflows for services, projects, contacts, SEO, analytics, and dashboard operations.",
+        "Developed the corresponding Express and TypeScript backend modules, validation, Prisma data access, and protected CRUD APIs outside the blog module.",
+        "Connected Firebase-authenticated administration, PostgreSQL content, dynamic metadata, sitemap behavior, and inquiry-management flows.",
+        "Worked across production integration and deployment concerns for the separated frontend and backend applications."
+      ]
+    },
+    keyFeatures: [
+      {
+        title: "Public Agency Experience",
+        items: [
+          "Responsive service, portfolio, case-study, pricing, about, contact, careers, FAQ, and policy pages.",
+          "Dynamic service details and portfolio case studies loaded from published database content.",
+          "Light and dark themes, smooth scrolling, structured loading states, and reusable visual components."
+        ]
+      },
+      {
+        title: "Content Management",
+        items: [
+          "Admin-managed services with detailed offerings, process steps, technologies, pricing, FAQs, and publication state.",
+          "Database-backed projects with outcomes, feature groups, roles, architecture, integrations, repositories, and stack data.",
+          "Draft, published, featured, sorting, and structured-content controls across managed content."
+        ]
+      },
+      {
+        title: "Administration and Leads",
+        items: [
+          "Firebase-protected dashboard guarded by verified tokens and an administrator email allowlist.",
+          "Contact inquiry capture with service, budget, company, phone, message, and lifecycle status data.",
+          "Dashboard controls for projects, services, contacts, SEO information, and analytics settings."
+        ]
+      },
+      {
+        title: "SEO and Platform Operations",
+        items: [
+          "Editable metadata, canonical URLs, Open Graph fields, focus keywords, and robots controls.",
+          "Dynamic sitemap generation for service, portfolio, and other public routes.",
+          "Configurable analytics scripts and SMTP-supported contact email delivery."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Next Themes", "Framer Motion", "Lenis"] },
+      { category: "Backend", items: ["Node.js", "Express.js", "TypeScript", "Zod"] },
+      { category: "Database / ORM", items: ["PostgreSQL", "Prisma"] },
+      { category: "Authentication / Security", items: ["Firebase Auth", "Firebase Admin SDK", "Helmet"] },
+      { category: "Services", items: ["Nodemailer", "SMTP"] },
+      { category: "Deployment", items: ["Custom Domain", "Render", "Hostinger"] }
+    ],
+    architecture: {
+      intro:
+        "Shei IT separates a Next.js public and admin application from a modular Express API. Prisma and PostgreSQL own structured content, while Firebase secures administrative operations and public APIs expose only published data.",
+      steps: [
+        {
+          title: "Public Content Delivery",
+          description:
+            "Dynamic public routes request published services, portfolio projects, case studies, SEO data, and configuration from the Express API."
+        },
+        {
+          title: "Secure Administration",
+          description:
+            "An administrator signs in with Firebase, and protected requests carry an ID token that Firebase Admin verifies against the authorized email policy."
+        },
+        {
+          title: "Modular Content Operations",
+          description:
+            "Feature-specific controllers, services, validation, and Prisma queries handle projects, services, contacts, SEO, analytics, and dashboard data."
+        },
+        {
+          title: "Publication and Discovery",
+          description:
+            "Approved content becomes available through public APIs while metadata, robots rules, and sitemap entries keep dynamic routes discoverable."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "Agency Home and Services",
+        description:
+          "The public experience presents the agency brand, service offering, proof of work, pricing paths, and conversion-focused calls to action."
+      },
+      {
+        title: "Dynamic Portfolio",
+        description:
+          "Portfolio screens turn database-backed project records into browsable work cards and detailed case studies."
+      },
+      {
+        title: "Admin Dashboard",
+        description:
+          "Protected administration surfaces organize content, inquiries, SEO, analytics, and platform overview workflows."
+      },
+      {
+        title: "Inquiry Management",
+        description:
+          "Contact workflows capture qualified project details and let administrators track each inquiry as new, replied, or archived."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Turning a conventional agency site into a maintainable content-driven platform.",
+        solution:
+          "We separated the public experience from a modular CMS-style API so services, projects, contacts, SEO, and configuration could evolve without hardcoded frontend edits."
+      },
+      {
+        challenge: "Protecting broad administrative capabilities without weakening public content access.",
+        solution:
+          "Firebase token verification, an administrator allowlist, Zod validation, and protected mutation routes keep administrative actions separate from public read-only endpoints."
+      },
+      {
+        challenge: "Keeping structured content flexible across service and project detail pages.",
+        solution:
+          "Reusable data models and section-oriented frontend components support complex records while preserving consistent responsive presentation."
+      }
+    ],
+    learnings: [
+      "Shei IT strengthened my ability to own a broad production surface across frontend, backend, database, security, and deployment concerns within a team project.",
+      "It improved my understanding of content-management architecture and the difference between hardcoded marketing pages and maintainable operational platforms.",
+      "Building nearly every product area reinforced the importance of modular boundaries, reusable UI systems, validation, and explicit publication workflows."
+    ]
+  },
+  {
+    slug: "pawcare",
+    type: "Frontend Pet Care Services SPA",
+    status: "Completed",
+    tagline:
+      "A responsive pet-care experience for discovering services, meeting expert veterinarians, authenticating securely, and managing service requests.",
+    overview:
+      "PawCare is a single-page pet-care services platform built for owners who want a clear place to explore professional care options. The application combines service discovery, detailed service information, veterinarian profiles, Firebase authentication, protected pages, profile management, and booking-form interactions in a responsive interface.",
+    purpose:
+      "Pet owners often need to compare care options and understand available expertise before deciding on a service. PawCare was built to organize those discovery and account workflows into a friendly web experience that works consistently across mobile, tablet, and desktop devices.",
+    keyFeatures: [
+      {
+        title: "Authentication Features",
+        items: [
+          "Email and password registration and login through Firebase Authentication.",
+          "Google sign-in integration and password-reset support.",
+          "Protected routes that require an authenticated user session."
+        ]
+      },
+      {
+        title: "Pet Care Discovery",
+        items: [
+          "Browsable pet-care services with dedicated detail information.",
+          "Expert veterinarian profiles that introduce available professionals.",
+          "Service booking forms that capture user requests and provide submission feedback."
+        ]
+      },
+      {
+        title: "User Experience",
+        items: [
+          "Profile view and update flows for authenticated users.",
+          "Smooth client-side navigation through React Router.",
+          "Toast feedback, carousels, marquees, and animations for responsive interaction."
+        ]
+      },
+      {
+        title: "Responsive Interface",
+        items: [
+          "Layouts optimized for mobile, tablet, and desktop breakpoints.",
+          "Reusable components organized across page, layout, and authentication boundaries.",
+          "Tailwind CSS and DaisyUI styling with consistent interactive states."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["React 19", "React Router", "Tailwind CSS", "DaisyUI"] },
+      { category: "Authentication", items: ["Firebase Auth"] },
+      { category: "UI / Interaction", items: ["Swiper", "Lucide React", "React Fast Marquee", "Animate.css"] },
+      { category: "Notifications", items: ["React Hot Toast"] },
+      { category: "Build Tool", items: ["Vite"] },
+      { category: "Deployment", items: ["Firebase"] }
+    ],
+    architecture: {
+      intro:
+        "PawCare uses a React SPA architecture with React Router for client-side navigation and an authentication provider that shares Firebase session state with protected routes and profile features.",
+      steps: [
+        {
+          title: "Service Discovery",
+          description:
+            "Visitors browse pet-care offerings and veterinarian information through responsive public pages and reusable content components."
+        },
+        {
+          title: "Authentication",
+          description:
+            "Users register or sign in through Firebase using email credentials or Google, while password recovery supports account access."
+        },
+        {
+          title: "Protected Experience",
+          description:
+            "Authentication state controls access to private routes, profile information, profile updates, and authenticated service interactions."
+        },
+        {
+          title: "Booking Interaction",
+          description:
+            "Users open a service detail, complete its booking form, and receive immediate interface feedback on submission."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "Pet Care Landing",
+        description:
+          "The landing experience introduces available care services, expertise, and key calls to action."
+      },
+      {
+        title: "Service Details",
+        description:
+          "Individual service views provide focused information and a clear path toward the booking form."
+      },
+      {
+        title: "Veterinarian Showcase",
+        description:
+          "Professional profiles help users understand the expertise available through the platform."
+      },
+      {
+        title: "Profile Experience",
+        description:
+          "Authenticated users can review and update their account information through protected screens."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Keeping authentication state reliable across public and protected SPA routes.",
+        solution:
+          "I centralized Firebase session handling in an authentication provider and used route guards to delay or deny protected content appropriately."
+      },
+      {
+        challenge: "Presenting several service and veterinarian sections clearly across device sizes.",
+        solution:
+          "I used responsive layout patterns, reusable content components, and breakpoint-aware styling to preserve hierarchy on mobile, tablet, and desktop."
+      },
+      {
+        challenge: "Providing clear feedback during account and form interactions.",
+        solution:
+          "Toast notifications and explicit interface states communicate authentication, profile, and form outcomes without disrupting navigation."
+      }
+    ],
+    learnings: [
+      "PawCare strengthened my understanding of Firebase authentication, protected routes, and profile workflows inside a React SPA.",
+      "It improved my ability to build responsive service-oriented interfaces with reusable sections and interactive libraries.",
+      "The project also reinforced the importance of immediate user feedback during authentication and form-based actions."
+    ]
   }
 ] satisfies ProjectDetail[];
 

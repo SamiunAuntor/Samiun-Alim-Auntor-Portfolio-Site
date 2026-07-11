@@ -7,14 +7,67 @@ import {
   CircleDot,
   ExternalLink,
   Github,
-  Layers3
+  Layers3,
+  ShieldCheck,
+  Upload
 } from "lucide-react";
 import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import {
+  SiAxios,
+  SiCloudinary,
+  SiExpress,
+  SiFirebase,
+  SiFramer,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiMongoose,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiReactquery,
+  SiReactrouter,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+  SiZod
+} from "react-icons/si";
 import { BackButton } from "@/components/shared/BackButton";
 import { PageContainer } from "@/components/shared/PageContainer";
 import { TechBadge } from "@/components/shared/TechBadge";
 import type { Project, ProjectDetail } from "@/data/types";
 
+const projectTechIcons: Record<string, { icon: IconType; color: string }> = {
+  "Next.js": { icon: SiNextdotjs, color: "text-white" },
+  React: { icon: SiReact, color: "text-[#61DAFB]" },
+  TypeScript: { icon: SiTypescript, color: "text-[#3178C6]" },
+  "React 19": { icon: SiReact, color: "text-[#61DAFB]" },
+  Vite: { icon: SiVite, color: "text-[#646CFF]" },
+  "React Router": { icon: SiReactrouter, color: "text-[#CA4245]" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "text-[#38BDF8]" },
+  "TanStack Query": { icon: SiReactquery, color: "text-[#FF4154]" },
+  "Framer Motion": { icon: SiFramer, color: "text-white" },
+  "Node.js": { icon: SiNodedotjs, color: "text-[#8CC84B]" },
+  "Express.js": { icon: SiExpress, color: "text-white" },
+  "Express 5": { icon: SiExpress, color: "text-white" },
+  Zod: { icon: SiZod, color: "text-[#3068B7]" },
+  MongoDB: { icon: SiMongodb, color: "text-[#47A248]" },
+  PostgreSQL: { icon: SiPostgresql, color: "text-[#4169E1]" },
+  Prisma: { icon: SiPrisma, color: "text-white" },
+  Mongoose: { icon: SiMongoose, color: "text-[#880000]" },
+  Firebase: { icon: SiFirebase, color: "text-[#FFCA28]" },
+  "Firebase Auth": { icon: SiFirebase, color: "text-[#FFCA28]" },
+  "Firebase Admin SDK": { icon: SiFirebase, color: "text-[#FFCA28]" },
+  JWT: { icon: SiJsonwebtokens, color: "text-[#D63AFF]" },
+  bcryptjs: { icon: ShieldCheck, color: "text-emerald-300" },
+  Cloudinary: { icon: SiCloudinary, color: "text-[#3448C5]" },
+  Multer: { icon: Upload, color: "text-sky-300" },
+  Axios: { icon: SiAxios, color: "text-[#5A29E4]" },
+  Vercel: { icon: SiVercel, color: "text-white" }
+};
 type ProjectCaseStudyProps = {
   project: Project;
   detail: ProjectDetail;
@@ -140,7 +193,7 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
                       <h3 className="text-base font-semibold text-white">{category.category}</h3>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {category.items.map((item) => (
-                          <TechBadge key={`${category.category}-${item}`} label={item} />
+                          <ProjectTechBadge key={`${category.category}-${item}`} label={item} />
                         ))}
                       </div>
                     </article>
@@ -252,6 +305,17 @@ export function ProjectCaseStudy({ project, detail, previewImage }: ProjectCaseS
   );
 }
 
+function ProjectTechBadge({ label }: { label: string }) {
+  const technology = projectTechIcons[label];
+  const Icon = technology?.icon ?? ShieldCheck;
+
+  return (
+    <span className="inline-flex max-w-full items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/45 px-3 py-2.5 text-xs font-medium text-slate-200">
+      <Icon className={`h-4 w-4 shrink-0 ${technology?.color ?? "text-sky-300"}`} />
+      <span className="min-w-0 break-words">{label}</span>
+    </span>
+  );
+}
 function ProjectHero({ project, detail, previewImage }: ProjectCaseStudyProps) {
   return (
     <section className="grid gap-8 pt-10 sm:gap-10 sm:pt-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
@@ -272,47 +336,62 @@ function ProjectHero({ project, detail, previewImage }: ProjectCaseStudyProps) {
         <ProjectLinks project={project} className="mt-8" />
       </div>
 
-      <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
-        <div className="relative aspect-[3/2] bg-[radial-gradient(circle_at_25%_15%,rgba(56,189,248,0.16),transparent_36%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))]">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-35" />
-          <div className="absolute inset-3 overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-950/45 sm:inset-6 sm:rounded-[1.5rem]">
-            {previewImage ? (
-              <Image
-                src={previewImage}
-                alt={`${project.title} project thumbnail`}
-                fill
-                sizes="(min-width: 1024px) 48vw, 100vw"
-                className="object-fill"
-                priority
-              />
-            ) : null}
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.18))]" />
-            {project.links.live ? <LivePreviewBadge href={project.links.live} title={project.title} /> : null}
-          </div>
+      {project.links.live ? (
+        <Link
+          href={project.links.live}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={"Open live " + project.title + " project"}
+          className="group block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:shadow-[0_24px_70px_rgba(14,165,233,0.16),inset_0_1px_0_rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
+        >
+          <ProjectPreviewContent project={project} previewImage={previewImage} showLiveBadge />
+        </Link>
+      ) : (
+        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_18px_56px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur">
+          <ProjectPreviewContent project={project} previewImage={previewImage} />
         </div>
-      </div>
+      )}
     </section>
   );
 }
 
-function LivePreviewBadge({ href, title }: { href: string; title: string }) {
+function ProjectPreviewContent({
+  project,
+  previewImage,
+  showLiveBadge = false
+}: Pick<ProjectCaseStudyProps, "project" | "previewImage"> & { showLiveBadge?: boolean }) {
   return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`Open live ${title} project`}
-      className="absolute right-3 top-3 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-slate-950/72 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-100 shadow-[0_10px_30px_rgba(2,6,23,0.28)] backdrop-blur-md transition hover:border-emerald-300/35 hover:bg-slate-900/78 sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-xs"
-    >
+    <div className="relative aspect-[3/2] bg-[radial-gradient(circle_at_25%_15%,rgba(56,189,248,0.16),transparent_36%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))]">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-35" />
+      <div className="absolute inset-3 overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-950/45 transition duration-300 group-hover:border-sky-300/20 sm:inset-6 sm:rounded-[1.5rem]">
+        {previewImage ? (
+          <Image
+            src={previewImage}
+            alt={project.title + " project thumbnail"}
+            fill
+            sizes="(min-width: 1024px) 48vw, 100vw"
+            className="object-fill transition duration-500 group-hover:scale-[1.02]"
+            priority
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.18))] transition group-hover:bg-[linear-gradient(180deg,rgba(2,6,23,0.01),rgba(2,6,23,0.12))]" />
+        {showLiveBadge ? <LivePreviewBadge /> : null}
+      </div>
+    </div>
+  );
+}
+
+function LivePreviewBadge() {
+  return (
+    <span className="absolute right-3 top-3 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-slate-950/72 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-100 shadow-[0_10px_30px_rgba(2,6,23,0.28)] backdrop-blur-md transition duration-300 group-hover:border-emerald-300/40 group-hover:bg-slate-900/85 sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-xs">
       <span className="relative flex h-2.5 w-2.5">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-45" />
         <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(110,231,183,0.55)]" />
       </span>
       Live
-    </Link>
+    </span>
   );
 }
-
 function CaseStudySection({
   id,
   eyebrow,

@@ -1,13 +1,16 @@
 import { projectSchema, type Project } from "./types";
 import bloodBridgeImage from "@/assets/projects/blood-bridge.png";
 import ghorBariImage from "@/assets/projects/ghor-bari.png";
+import legacyVaultImage from "@/assets/projects/legacy-vault.png";
+import pawCareImage from "@/assets/projects/paw-care.png";
+import sheiItImage from "@/assets/projects/shei-it.png";
 import skillBridgeImage from "@/assets/projects/skill-bridge.png";
 import warrantyWalletImage from "@/assets/projects/warranty-wallet.png";
 
 const rawProjects = [
   {
     slug: "skillbridge",
-    title: "SkillBridge",
+    title: "Skill Bridge",
     eyebrow: "Tutoring Marketplace Platform",
     description:
       "A modern tutoring marketplace where students discover tutors, book live sessions, pay securely, and use role-based dashboards across student, tutor, and admin experiences.",
@@ -71,7 +74,7 @@ const rawProjects = [
   },
   {
     slug: "warrantywallet",
-    title: "WarrantyWallet",
+    title: "Warranty Wallet",
     eyebrow: "Digital Warranty Management Platform",
     description:
       "A smart warranty and claim reminder system for tracking products, storing invoices, managing admin oversight, and automating expiry reminders.",
@@ -127,6 +130,83 @@ const rawProjects = [
       backend: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Server"
     },
     featured: false
+  },
+  {
+    slug: "legacy-vault",
+    title: "Legacy Vault",
+    eyebrow: "Secure Digital Inheritance Platform",
+    description:
+      "A secure digital inheritance platform for preserving documents, final wishes, future messages, and successor instructions behind a verified, admin-reviewed claim workflow.",
+    impact:
+      "A privacy-focused vault experience that combines protected document storage, successor verification, claim scoring, admin review, and controlled release of sensitive information.",
+    features: [
+      "Private vault for documents, final wishes, and future messages",
+      "Trusted successor setup with hashed verification answers",
+      "End-to-end claim submission, scoring, review, and approval workflow",
+      "Admin moderation, audit logs, and controlled vault-data release"
+    ],
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase",
+      "Cloudinary",
+      "Vercel"
+    ],
+    links: {
+      live: "https://legacy-vault-beta.vercel.app/",
+      github: "https://github.com/SamiunAuntor/Legacy-Vault"
+    },
+    featured: false
+  },
+  {
+    slug: "shei-it",
+    title: "Shei IT",
+    eyebrow: "Full-Stack Digital Agency Platform",
+    description:
+      "A production-ready agency platform with dynamic services, portfolio case studies, content management, inquiry workflows, SEO controls, analytics settings, and a secure admin dashboard.",
+    impact:
+      "A deployed content-driven platform that combines a polished agency website with secure administrative control over services, projects, contacts, SEO, analytics, and publishing workflows.",
+    features: [
+      "Database-backed services, portfolio projects, and detailed case studies",
+      "Firebase-protected admin dashboard with modular content controls",
+      "Contact inquiry management, editable SEO, and analytics configuration",
+      "Responsive public experience with dynamic routes and light/dark themes"
+    ],
+    stack: ["Next.js", "TypeScript", "Express.js", "PostgreSQL", "Prisma", "Firebase", "Tailwind CSS", "Zod", "Node.js"],
+    links: {
+      live: "https://shei-it.com/",
+      github: "https://github.com/Mahedi454/Shei-IT"
+    },
+    featured: false
+  },
+  {
+    slug: "pawcare",
+    title: "Paw Care",
+    eyebrow: "Pet Care Services Platform",
+    description:
+      "A responsive pet-care SPA where users explore services, review veterinarian profiles, authenticate securely, manage their profile, and submit service-booking forms.",
+    impact:
+      "A polished consumer-facing React experience that combines Firebase authentication, protected routes, responsive service discovery, profile management, and interactive UI feedback.",
+    features: [
+      "Email, password, and Google authentication with password reset",
+      "Protected routes and editable user profile experience",
+      "Pet-care service discovery, details, and booking-form flow",
+      "Responsive veterinarian showcase with animated interface elements"
+    ],
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Firebase",
+      "Vite"
+    ],
+    links: {
+      live: "https://pet-care-e7a9f.web.app/",
+      github: "https://github.com/SamiunAuntor/PH-Assignment-9_Pet-Care"
+    },
+    featured: false
   }
 ] satisfies Project[];
 
@@ -136,5 +216,8 @@ export const projectImages = {
   "blood-bridge": bloodBridgeImage,
   skillbridge: skillBridgeImage,
   "ghor-bari": ghorBariImage,
-  warrantywallet: warrantyWalletImage
+  warrantywallet: warrantyWalletImage,
+  "legacy-vault": legacyVaultImage,
+  "shei-it": sheiItImage,
+  pawcare: pawCareImage
 } as const;
