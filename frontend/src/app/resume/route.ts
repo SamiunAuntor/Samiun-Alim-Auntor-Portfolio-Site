@@ -3,6 +3,8 @@ import path from "node:path";
 
 const resumeFileName = "Samiun-Alim-Auntor-Resume.pdf";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const resumePath = path.join(process.cwd(), "public", "samiun-alim-auntor-resume.pdf");
   const resume = await readFile(resumePath);
@@ -11,7 +13,7 @@ export async function GET() {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="${resumeFileName}"`,
-      "Cache-Control": "public, max-age=31536000, immutable"
+      "Cache-Control": "no-store, max-age=0"
     }
   });
 }
