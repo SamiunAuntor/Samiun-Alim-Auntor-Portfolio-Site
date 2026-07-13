@@ -365,123 +365,6 @@ const rawProjectDetails = [
     ]
   },
   {
-    slug: "blood-bridge",
-    type: "Full-stack Donation Management Platform",
-    status: "Completed",
-    tagline:
-      "A blood donation platform connecting donors and recipients through request management, donor search, protected dashboards, and role-based operations.",
-    overview:
-      "Blood Bridge is a MERN-style donation platform for creating, managing, and discovering blood donation requests. It combines public donor discovery with authenticated dashboards for donors, volunteers, and admins.",
-    purpose:
-      "The project was built to make blood donation coordination more organized. Instead of relying on scattered posts or manual contact lists, users can create requests, search donors by location and blood group, and manage request status in one system.",
-    keyFeatures: [
-      {
-        title: "Donor Features",
-        items: [
-          "Create and manage donation requests from a protected dashboard.",
-          "Track request status and update outcomes when a donation workflow progresses."
-        ]
-      },
-      {
-        title: "Recipient / Public Features",
-        items: [
-          "Browse pending donation requests from public pages.",
-          "Search donors by blood group, district, and upazila."
-        ]
-      },
-      {
-        title: "Admin Features",
-        items: [
-          "Manage users, roles, blocks, donation requests, and platform statistics.",
-          "Review operational activity through dashboard-oriented views."
-        ]
-      },
-      {
-        title: "Volunteer Features",
-        items: [
-          "Access broader request management views to help keep donation workflows updated."
-        ]
-      }
-    ],
-    techStack: [
-      { category: "Frontend", items: ["React", "Vite", "React Router", "Tailwind CSS", "DaisyUI"] },
-      { category: "Backend", items: ["Node.js", "Express.js"] },
-      { category: "Database", items: ["MongoDB"] },
-      { category: "Authentication", items: ["Firebase Auth", "Firebase Admin SDK"] },
-      { category: "Tools", items: ["Recharts", "React Hook Form", "SweetAlert2", "jsPDF"] },
-      { category: "Deployment", items: ["Firebase Hosting", "Vercel-hosted server"] }
-    ],
-    architecture: {
-      intro:
-        "Blood Bridge uses a React client with protected dashboard routes and an Express API that verifies Firebase identity before allowing role-specific actions.",
-      steps: [
-        {
-          title: "Authentication Flow",
-          description:
-            "Users authenticate through Firebase, and protected API calls are verified on the server before accessing private resources."
-        },
-        {
-          title: "Donation Request Flow",
-          description:
-            "Donors create requests, users inspect pending requests, and request state changes as donors or volunteers update progress."
-        },
-        {
-          title: "Role-based Dashboard Flow",
-          description:
-            "Admins, volunteers, and donors see different dashboard surfaces based on their role and permissions."
-        },
-        {
-          title: "Donor Search Flow",
-          description:
-            "Search combines blood group and Bangladesh location filters so users can find relevant donors faster."
-        }
-      ]
-    },
-    visuals: [
-      {
-        title: "Donation Requests",
-        description:
-          "Request screens keep recipient details, location, blood group, and status visible."
-      },
-      {
-        title: "Donor Search",
-        description:
-          "Search flows help users filter possible donors by blood group and location."
-      },
-      {
-        title: "Dashboard",
-        description:
-          "Role-based dashboard views organize requests, user actions, and key statistics."
-      },
-      {
-        title: "Admin Management",
-        description:
-          "Admin screens support role changes, user blocking, and request oversight."
-      }
-    ],
-    challenges: [
-      {
-        challenge: "Managing different permissions across admin, volunteer, and donor roles.",
-        solution:
-          "I separated route access and dashboard behavior by role so each user only sees the actions they should control."
-      },
-      {
-        challenge: "Keeping donation request status understandable.",
-        solution:
-          "The request lifecycle was modeled around clear states so users can tell whether a request is pending, in progress, or completed."
-      },
-      {
-        challenge: "Making donor search practical for local use.",
-        solution:
-          "I used blood group and district/upazila filters to make search more useful for real-world matching."
-      }
-    ],
-    learnings: [
-      "Blood Bridge strengthened my understanding of role-based dashboards and protected workflow design.",
-      "It also helped me practice connecting public discovery pages with authenticated operational features."
-    ]
-  },
-  {
     slug: "legacy-vault",
     type: "Full-stack Digital Inheritance Platform",
     status: "Completed",
@@ -750,6 +633,123 @@ const rawProjectDetails = [
     ]
   },
   {
+    slug: "blood-bridge",
+    type: "Full-stack Donation Management Platform",
+    status: "Completed",
+    tagline:
+      "A blood donation platform connecting donors and recipients through request management, donor search, protected dashboards, and role-based operations.",
+    overview:
+      "Blood Bridge is a MERN-style donation platform for creating, managing, and discovering blood donation requests. It combines public donor discovery with authenticated dashboards for donors, volunteers, and admins.",
+    purpose:
+      "The project was built to make blood donation coordination more organized. Instead of relying on scattered posts or manual contact lists, users can create requests, search donors by location and blood group, and manage request status in one system.",
+    keyFeatures: [
+      {
+        title: "Donor Features",
+        items: [
+          "Create and manage donation requests from a protected dashboard.",
+          "Track request status and update outcomes when a donation workflow progresses."
+        ]
+      },
+      {
+        title: "Recipient / Public Features",
+        items: [
+          "Browse pending donation requests from public pages.",
+          "Search donors by blood group, district, and upazila."
+        ]
+      },
+      {
+        title: "Admin Features",
+        items: [
+          "Manage users, roles, blocks, donation requests, and platform statistics.",
+          "Review operational activity through dashboard-oriented views."
+        ]
+      },
+      {
+        title: "Volunteer Features",
+        items: [
+          "Access broader request management views to help keep donation workflows updated."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["React", "Vite", "React Router", "Tailwind CSS", "DaisyUI"] },
+      { category: "Backend", items: ["Node.js", "Express.js"] },
+      { category: "Database", items: ["MongoDB"] },
+      { category: "Authentication", items: ["Firebase Auth", "Firebase Admin SDK"] },
+      { category: "Tools", items: ["Recharts", "React Hook Form", "SweetAlert2", "jsPDF"] },
+      { category: "Deployment", items: ["Firebase Hosting", "Vercel-hosted server"] }
+    ],
+    architecture: {
+      intro:
+        "Blood Bridge uses a React client with protected dashboard routes and an Express API that verifies Firebase identity before allowing role-specific actions.",
+      steps: [
+        {
+          title: "Authentication Flow",
+          description:
+            "Users authenticate through Firebase, and protected API calls are verified on the server before accessing private resources."
+        },
+        {
+          title: "Donation Request Flow",
+          description:
+            "Donors create requests, users inspect pending requests, and request state changes as donors or volunteers update progress."
+        },
+        {
+          title: "Role-based Dashboard Flow",
+          description:
+            "Admins, volunteers, and donors see different dashboard surfaces based on their role and permissions."
+        },
+        {
+          title: "Donor Search Flow",
+          description:
+            "Search combines blood group and Bangladesh location filters so users can find relevant donors faster."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "Donation Requests",
+        description:
+          "Request screens keep recipient details, location, blood group, and status visible."
+      },
+      {
+        title: "Donor Search",
+        description:
+          "Search flows help users filter possible donors by blood group and location."
+      },
+      {
+        title: "Dashboard",
+        description:
+          "Role-based dashboard views organize requests, user actions, and key statistics."
+      },
+      {
+        title: "Admin Management",
+        description:
+          "Admin screens support role changes, user blocking, and request oversight."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Managing different permissions across admin, volunteer, and donor roles.",
+        solution:
+          "I separated route access and dashboard behavior by role so each user only sees the actions they should control."
+      },
+      {
+        challenge: "Keeping donation request status understandable.",
+        solution:
+          "The request lifecycle was modeled around clear states so users can tell whether a request is pending, in progress, or completed."
+      },
+      {
+        challenge: "Making donor search practical for local use.",
+        solution:
+          "I used blood group and district/upazila filters to make search more useful for real-world matching."
+      }
+    ],
+    learnings: [
+      "Blood Bridge strengthened my understanding of role-based dashboards and protected workflow design.",
+      "It also helped me practice connecting public discovery pages with authenticated operational features."
+    ]
+  },
+  {
     slug: "pawcare",
     type: "Frontend Pet Care Services SPA",
     status: "Completed",
@@ -870,6 +870,252 @@ const rawProjectDetails = [
       "PawCare strengthened my understanding of Firebase authentication, protected routes, and profile workflows inside a React SPA.",
       "It improved my ability to build responsive service-oriented interfaces with reusable sections and interactive libraries.",
       "The project also reinforced the importance of immediate user feedback during authentication and form-based actions."
+    ]
+  },
+  {
+    slug: "hero-apps",
+    type: "Frontend App Discovery SPA",
+    status: "Completed",
+    tagline:
+      "A responsive app-store experience for discovering applications, exploring ratings and reviews, and managing a browser-persisted installation collection.",
+    overview:
+      "Hero Apps is a React single-page application that simulates a modern app marketplace. Users can browse trending and complete app collections, search by title, open detailed app profiles, inspect ratings and download statistics, view rating-distribution charts, and install or uninstall apps from a locally persisted collection.",
+    purpose:
+      "The project was built to practice data-driven SPA design around a familiar app-store experience. It combines asynchronous route loading, detailed catalog presentation, interactive visualization, local persistence, responsive layouts, and immediate user feedback without requiring a backend.",
+    keyFeatures: [
+      {
+        title: "App Discovery",
+        items: [
+          "Home page with a promotional banner, trending applications, and featured app cards.",
+          "Complete app gallery with real-time, case-insensitive title search.",
+          "Filtered-result counts, responsive grids, and reusable app cards."
+        ]
+      },
+      {
+        title: "App Details",
+        items: [
+          "Dynamic detail routes with app icons, descriptions, sizes, downloads, ratings, and reviews.",
+          "Interactive horizontal rating-distribution chart covering one-to-five-star reviews.",
+          "Loading indicators and custom error handling for invalid routes or unavailable data."
+        ]
+      },
+      {
+        title: "Installation Management",
+        items: [
+          "Install and uninstall actions from app detail and installation views.",
+          "Browser localStorage persistence for installed app titles.",
+          "Dedicated installation page with sorting and real-time removal updates."
+        ]
+      },
+      {
+        title: "Responsive Experience",
+        items: [
+          "Mobile-first layouts with adaptive grids and hamburger navigation.",
+          "Toast notifications for successful installation and removal actions.",
+          "SPA routing configured for direct navigation and reload support on Cloudflare Pages."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["React 19", "JavaScript", "React Router", "Tailwind CSS", "DaisyUI"] },
+      { category: "Build Tool", items: ["Vite"] },
+      { category: "Data", items: ["JSON File Storage", "localStorage"] },
+      { category: "Visualization", items: ["Chart.js", "react-chartjs-2"] },
+      { category: "UI / Feedback", items: ["Lucide React", "React Hot Toast"] },
+      { category: "Deployment", items: ["Cloudflare Pages"] }
+    ],
+    architecture: {
+      intro:
+        "Hero Apps uses a client-only React architecture. React Router loaders retrieve static JSON data, page components derive search and detail views, Chart.js renders rating distributions, and localStorage preserves installation choices in the current browser.",
+      steps: [
+        {
+          title: "Route Data Loading",
+          description:
+            "React Router loaders retrieve app JSON before rendering the appropriate gallery or detail route."
+        },
+        {
+          title: "Discovery and Search",
+          description:
+            "The apps page filters loaded records against the search query and renders matching cards with a live result count."
+        },
+        {
+          title: "Detail Visualization",
+          description:
+            "The selected app record drives metadata, statistics, descriptive content, and a responsive rating chart."
+        },
+        {
+          title: "Local Installation State",
+          description:
+            "Install and uninstall actions update localStorage and immediately synchronize the visible interface."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "App Marketplace Home",
+        description:
+          "The landing experience combines a banner, trending collection, and routes into the complete application gallery."
+      },
+      {
+        title: "Apps Gallery",
+        description:
+          "Responsive cards and real-time search help users scan and narrow the app collection."
+      },
+      {
+        title: "App Detail View",
+        description:
+          "Detailed screens present metadata, downloads, reviews, descriptions, and rating visualization."
+      },
+      {
+        title: "Installed Apps",
+        description:
+          "A dedicated management page lists locally installed apps and supports sorting and removal."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Keeping installed-app state persistent without a backend.",
+        solution:
+          "I stored a compact installed-app collection in localStorage and synchronized React state after every change."
+      },
+      {
+        challenge: "Rendering rating distributions clearly across screen sizes.",
+        solution:
+          "I used a responsive horizontal Chart.js bar chart so star-level review counts remain readable."
+      },
+      {
+        challenge: "Supporting direct navigation in a deployed client-side router.",
+        solution:
+          "I configured Cloudflare Pages for SPA fallback behavior so nested routes continue working after refresh."
+      }
+    ],
+    learnings: [
+      "Hero Apps strengthened my understanding of React Router data loaders and route-driven SPA composition.",
+      "It improved my ability to coordinate static JSON data, search-derived UI, localStorage persistence, and chart visualization.",
+      "The project reinforced that browser-local state does not synchronize across devices or browsers."
+    ]
+  },
+  {
+    slug: "bill-wise",
+    type: "Full-stack Utility Management Platform",
+    status: "Completed",
+    tagline:
+      "A role-aware utility platform for discovering public bills, managing personal records, exporting reports, and administering users and bill activity.",
+    overview:
+      "Bill Wise is a MERN utility-management application covering electricity, gas, water, and internet bills. Public users can explore available utility records, authenticated users can manage their personal bills and profile, and administrators receive dedicated tools for analytics, user status management, public bill creation, and platform-wide bill oversight.",
+    purpose:
+      "The project was built to turn recurring utility information into a structured digital workflow. Instead of keeping bills scattered across receipts and disconnected records, Bill Wise combines category discovery, personal tracking, downloadable reporting, profile management, and administrative controls in one responsive product.",
+    keyFeatures: [
+      {
+        title: "Public and User Features",
+        items: [
+          "Public utility-bill browsing with recent records, category filtering, and detailed bill views.",
+          "Email/password and Google authentication with profile synchronization between Firebase and MongoDB.",
+          "Authenticated personal bill creation, viewing, updating, and deletion."
+        ]
+      },
+      {
+        title: "Dashboard and Reporting",
+        items: [
+          "User dashboard for personal bill activity and utility-management actions.",
+          "PDF report generation for paid bill records using jsPDF and AutoTable.",
+          "Charts, statistics, loading states, and responsive dashboard layouts."
+        ]
+      },
+      {
+        title: "Admin Features",
+        items: [
+          "Admin statistics for users, active accounts, bills, and recorded revenue.",
+          "User management with active and blocked account states.",
+          "Platform-wide bill oversight with update, delete, and public-bill creation tools."
+        ]
+      },
+      {
+        title: "Security and Experience",
+        items: [
+          "Firebase ID-token verification for protected server endpoints.",
+          "Database-backed role checks for administrator-only operations.",
+          "Axios interceptors, private routes, admin routes, toast feedback, and light/dark theme support."
+        ]
+      }
+    ],
+    techStack: [
+      { category: "Frontend", items: ["React 19", "Vite", "JavaScript", "React Router", "Tailwind CSS", "DaisyUI"] },
+      { category: "Backend", items: ["Node.js", "Express.js"] },
+      { category: "Database", items: ["MongoDB"] },
+      { category: "Authentication / Security", items: ["Firebase Auth", "Firebase Admin SDK", "Axios"] },
+      { category: "Reports / Visualization", items: ["jsPDF", "jsPDF AutoTable", "Recharts"] },
+      { category: "Deployment", items: ["Firebase", "Vercel"] }
+    ],
+    architecture: {
+      intro:
+        "Bill Wise separates a React SPA from an Express serverless API. Firebase manages client identity, the server verifies ID tokens, MongoDB stores users and bill collections, and role checks protect administrator operations.",
+      steps: [
+        {
+          title: "Authentication and User Sync",
+          description:
+            "Users sign in through Firebase, then the application synchronizes their identity and profile state with the MongoDB users collection."
+        },
+        {
+          title: "Public Bill Discovery",
+          description:
+            "The client requests recent or complete public utility records and presents category-aware browsing and detail routes."
+        },
+        {
+          title: "Personal Bill Management",
+          description:
+            "Authenticated API calls carry Firebase bearer tokens while users create, update, review, delete, and export their own bill records."
+        },
+        {
+          title: "Administrative Oversight",
+          description:
+            "Database role checks unlock statistics, user blocking, public-bill creation, and management of all user bills."
+        }
+      ]
+    },
+    visuals: [
+      {
+        title: "Utility Home",
+        description:
+          "The public landing experience introduces bill categories, recent records, product benefits, testimonials, and supporting information."
+      },
+      {
+        title: "Bill Discovery",
+        description:
+          "Bill listing and detail screens organize utility types, amounts, dates, locations, and descriptions."
+      },
+      {
+        title: "User Dashboard",
+        description:
+          "Authenticated views bring personal bills, profile details, report exports, and account actions into one workspace."
+      },
+      {
+        title: "Admin Dashboard",
+        description:
+          "Admin screens combine platform statistics, charts, user status controls, and bill-management tables."
+      }
+    ],
+    challenges: [
+      {
+        challenge: "Securing user and administrator operations across a separate client and server.",
+        solution:
+          "I verified Firebase ID tokens on protected endpoints and combined them with MongoDB role checks for administrator-only actions."
+      },
+      {
+        challenge: "Keeping public bills and user-owned bill records clearly separated.",
+        solution:
+          "I used distinct collections and route groups for public catalog data and authenticated personal records while preserving shared bill concepts in the UI."
+      },
+      {
+        challenge: "Supporting responsive operational dashboards with reports and analytics.",
+        solution:
+          "I organized dashboard features by role, used Recharts for visual summaries, and generated downloadable bill tables with jsPDF AutoTable."
+      }
+    ],
+    learnings: [
+      "Bill Wise strengthened my understanding of Firebase-secured Express APIs and database-backed role authorization.",
+      "It improved my ability to design separate public, user, and admin workflows across a full-stack application.",
+      "The project also gave me practical experience with PDF reporting, dashboard visualizations, Axios interceptors, and serverless API deployment."
     ]
   }
 ] satisfies ProjectDetail[];

@@ -1,6 +1,8 @@
 import { projectSchema, type Project } from "./types";
+import billWiseImage from "@/assets/projects/bill-wise.png";
 import bloodBridgeImage from "@/assets/projects/blood-bridge.png";
 import ghorBariImage from "@/assets/projects/ghor-bari.png";
+import heroAppsImage from "@/assets/projects/hero-apps.png";
 import legacyVaultImage from "@/assets/projects/legacy-vault.png";
 import pawCareImage from "@/assets/projects/paw-care.png";
 import sheiItImage from "@/assets/projects/shei-it.png";
@@ -103,35 +105,6 @@ const rawProjects = [
     featured: true
   },
   {
-    slug: "blood-bridge",
-    title: "Blood Bridge",
-    eyebrow: "Blood Donation Management System",
-    description:
-      "A secure MERN platform for managing blood donation requests, role-based dashboards, donor discovery, and operational workflows across admin, volunteer, and donor users.",
-    impact:
-      "An earlier but complete product system that demonstrates role-based access control, request lifecycle management, dashboard analytics, and public-to-private workflow design.",
-    features: [
-      "Admin, volunteer, and donor role-aware dashboards",
-      "Donation request CRUD, status tracking, and donor response flow",
-      "Search donors by blood group and Bangladesh location filters",
-      "Firebase auth, protected routes, PDF export, and dashboard analytics"
-    ],
-    stack: [
-      "React",
-      "Tailwind CSS",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Firebase"
-    ],
-    links: {
-      live: "https://bloodbridge-4c0c0.web.app/",
-      github: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Client",
-      backend: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Server"
-    },
-    featured: false
-  },
-  {
     slug: "legacy-vault",
     title: "Legacy Vault",
     eyebrow: "Secure Digital Inheritance Platform",
@@ -183,6 +156,35 @@ const rawProjects = [
     featured: false
   },
   {
+    slug: "blood-bridge",
+    title: "Blood Bridge",
+    eyebrow: "Blood Donation Management System",
+    description:
+      "A secure MERN platform for managing blood donation requests, role-based dashboards, donor discovery, and operational workflows across admin, volunteer, and donor users.",
+    impact:
+      "An earlier but complete product system that demonstrates role-based access control, request lifecycle management, dashboard analytics, and public-to-private workflow design.",
+    features: [
+      "Admin, volunteer, and donor role-aware dashboards",
+      "Donation request CRUD, status tracking, and donor response flow",
+      "Search donors by blood group and Bangladesh location filters",
+      "Firebase auth, protected routes, PDF export, and dashboard analytics"
+    ],
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase"
+    ],
+    links: {
+      live: "https://bloodbridge-4c0c0.web.app/",
+      github: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Client",
+      backend: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Server"
+    },
+    featured: false
+  },
+  {
     slug: "pawcare",
     title: "Paw Care",
     eyebrow: "Pet Care Services Platform",
@@ -207,6 +209,57 @@ const rawProjects = [
       github: "https://github.com/SamiunAuntor/PH-Assignment-9_Pet-Care"
     },
     featured: false
+  },
+  {
+    slug: "hero-apps",
+    title: "Hero Apps",
+    eyebrow: "App Store Discovery SPA",
+    description:
+      "A responsive app-store simulation where users browse and search applications, inspect ratings and download metrics, visualize review distributions, and manage local installations.",
+    impact:
+      "A polished React SPA combining data-loader routing, JSON-backed app discovery, Chart.js visualizations, persistent local installation state, and responsive catalog interactions.",
+    features: [
+      "Trending and complete app galleries with real-time title search",
+      "Detailed app metadata, downloads, reviews, and rating distribution",
+      "Install and uninstall workflows persisted through localStorage",
+      "Responsive Chart.js visualization with toast feedback and loading states"
+    ],
+    stack: ["React", "JavaScript", "Tailwind CSS", "Vite"],
+    links: {
+      live: "https://hero-apps-dax.pages.dev/",
+      github: "https://github.com/SamiunAuntor/PH-Assignment-8_Hero-Apps"
+    },
+    featured: false
+  },
+  {
+    slug: "bill-wise",
+    title: "Bill Wise",
+    eyebrow: "Utility Bill Management System",
+    description:
+      "A secure MERN utility-management platform where users explore public bills, manage personal bill records, export PDF reports, and use role-aware dashboards for user and admin workflows.",
+    impact:
+      "A complete client-server application combining Firebase-protected APIs, MongoDB bill data, personal bill CRUD, admin oversight, analytics, category discovery, and responsive operational dashboards.",
+    features: [
+      "Email, password, and Google authentication with protected role-aware routes",
+      "Public utility discovery and authenticated personal bill management",
+      "Admin analytics, user blocking, and platform-wide bill oversight",
+      "PDF report export, category filters, charts, and responsive dashboards"
+    ],
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase",
+      "Vercel"
+    ],
+    links: {
+      live: "https://billwise-375a5.web.app/",
+      github: "https://github.com/SamiunAuntor/PH-Assignment-10_Bill-Wise_Client",
+      backend: "https://github.com/SamiunAuntor/PH-Assignment-10_Bill-Wise_Server"
+    },
+    featured: false
   }
 ] satisfies Project[];
 
@@ -219,5 +272,7 @@ export const projectImages = {
   warrantywallet: warrantyWalletImage,
   "legacy-vault": legacyVaultImage,
   "shei-it": sheiItImage,
-  pawcare: pawCareImage
+  pawcare: pawCareImage,
+  "hero-apps": heroAppsImage,
+  "bill-wise": billWiseImage
 } as const;
