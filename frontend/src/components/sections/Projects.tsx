@@ -6,7 +6,7 @@ import { Reveal } from "@/components/shared/Reveal";
 import { projects } from "@/data/projects";
 
 export function Projects() {
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProjects = projects.slice(0, 6);
 
   return (
     <section id="projects" className="py-16 lg:py-24">
